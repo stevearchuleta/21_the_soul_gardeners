@@ -5,7 +5,7 @@ import './style.css';
 const forum = () => {
   return(
     <div className="item forum">
-      <div>Q &amp; A Forum</div>
+      <div>Q &amp; A FORUM</div>
     </div>
   )
 }

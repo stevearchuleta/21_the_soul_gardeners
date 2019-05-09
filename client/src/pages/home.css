@@ -189,14 +189,18 @@
 
 grid-template-areas:  "logo header login"
                       "garden-tips banner journal"
-                      "garden-tips photo journal"
+                      "garden-tips empty-tips journal"
                       "inspiration empty-tips forum"
-                      "inspiration empty-tips empty-insp"
+                      "inspiration  empty-insp photo"
                       "inspiration footer footer";
 }
 .item{
-  padding: 20px;
-  font-size: 30px;
+  padding: 10px;
+  font-size: 17px;
   font-family: sans serif;
-  color: grey;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
 }

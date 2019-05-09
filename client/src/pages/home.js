@@ -29,7 +29,6 @@ const Home = () => {
   <EmptyTipsDiv/>
   <EmptyInspirationDiv/>
   <Footer/>
-  
 </div>
 }
 

@@ -5,7 +5,7 @@ import './style.css';
 const emptyTipsDiv = () => {
   return(
     <div className="item empty-tips">
-      <div>Empty Garden Tips Div</div>
+      <div>EMPTY GARDEN TIPS DIV</div>
     </div>
   )
 }

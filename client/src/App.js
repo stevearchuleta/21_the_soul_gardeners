@@ -17,15 +17,13 @@ console.log(res.data);
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p onClick={this.fetchData}>
-         
          THE SOUL GARDENERS
         </p>
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
         </a>
       </header>
     <Home />

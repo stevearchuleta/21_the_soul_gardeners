@@ -5,7 +5,7 @@ import './style.css';
 const banner = () => {
   return(
     <div className="item banner">
-      <div>Banner</div>
+      <div>BANNER</div>
     </div>
   )
 }
