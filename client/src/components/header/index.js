@@ -4,8 +4,8 @@ import './style.css';
 
 const header = () => {
   return(
-    <div>
-      <div className="item header">HEADER</div>
+    <div className="item header">
+      <div>HEADER</div>
     </div>
   )
 }

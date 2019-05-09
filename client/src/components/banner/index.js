@@ -4,8 +4,8 @@ import './style.css';
 
 const banner = () => {
   return(
-    <div>
-      <div className="item banner">Banner</div>
+    <div className="item banner">
+      <div>Banner</div>
     </div>
   )
 }

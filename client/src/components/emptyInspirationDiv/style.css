@@ -1,0 +1,10 @@
+/* .inspiration-div{
+   background-color: purple;
+   grid-row: 5 / 6;
+   grid-column: 3 / span 1;
+ } */
+
+ .empty-insp{
+  background-color: purple;
+  grid-area: empty-insp;
+}

@@ -4,8 +4,8 @@ import './style.css';
 
 const emptyInspirationDiv = () => {
   return(
-    <div>
-      <div className="item empty-inspiration-div">EMPTY INSPIRATION DIV</div>
+    <div className="item empty-insp">
+      <div>EMPTY INSPIRATION DIV</div>
     </div>
   )
 }

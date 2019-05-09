@@ -1,6 +1,10 @@
-.daily-journal{
+/* .daily-journal{
   background-color: violet;
   grid-column: 3 / -1;
   grid-row: 2 / span 2; 
-  
+} */
+
+.journal{
+  background-color: violet;
+  grid-area: journal;
 }

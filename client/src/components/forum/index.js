@@ -4,8 +4,8 @@ import './style.css';
 
 const forum = () => {
   return(
-    <div>
-      <div className="item forum">Q &amp; A Forum</div>
+    <div className="item forum">
+      <div>Q &amp; A Forum</div>
     </div>
   )
 }

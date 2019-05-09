@@ -4,8 +4,8 @@ import './style.css';
 
 const logo = () => {
   return(
-    <div>
-      <div className="item logo">LOGO</div>
+    <div className="item logo">
+      <div>LOGO</div>
     </div>
   )
 }

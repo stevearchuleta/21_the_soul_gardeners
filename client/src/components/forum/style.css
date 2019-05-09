@@ -1,0 +1,10 @@
+/* .forum{
+   background-color: skyblue;
+  grid-row: empty-div-one-start / empty-div-two-start;
+   grid-column: col-end / grid-end;
+ } */
+
+ .forum{
+  background-color: skyblue;
+  grid-area: forum;
+}

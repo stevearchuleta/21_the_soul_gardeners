@@ -1,0 +1,9 @@
+/* .tips-div{
+   background-color: yellow;
+   grid-row: 4 / span 2;
+ } */
+
+ .empty-tips{
+  background-color: yellow;
+  grid-area: empty-tips;
+}

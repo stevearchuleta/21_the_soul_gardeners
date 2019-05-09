@@ -4,8 +4,8 @@ import './style.css';
 
 const dailyJournal = () => {
   return(
-    <div>
-      <div className="item daily-journal">Daily Journal</div>
+    <div className="item journal">
+      <div>Daily Journal</div>
     </div>
   )
 }

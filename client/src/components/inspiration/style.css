@@ -1,0 +1,10 @@
+ /* .inspiration{
+   background-color: purple;
+  grid-row: 4 / 7;
+   grid-column: 1 / span 1;
+ } */
+
+ .inspiration{
+  background-color: purple;
+  grid-area: inspiration;
+}

@@ -1,4 +1,10 @@
-.main-photo{
+ /* .main-photo{
+   background-color: orange;
+  grid-row: 3 / span 1;
+   grid-column: 2 / span 1;
+ } */
+
+ .photo{
   background-color: orange;
  grid-area: photo;
 }

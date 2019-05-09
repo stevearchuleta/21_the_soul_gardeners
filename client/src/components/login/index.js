@@ -4,8 +4,8 @@ import './style.css';
 
 const login = () => {
   return(
-    <div>
-      <div className="item login">LOGIN</div>
+    <div className="item login">
+      <div>LOGIN</div>
     </div>
   )
 }

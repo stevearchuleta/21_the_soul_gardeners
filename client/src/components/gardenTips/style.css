@@ -1,4 +1,10 @@
-.garden-tips{
+/* .garden-tips{
   background-color: yellow;
  grid-row: 2 / span 2;
+} */
+
+.garden-tips{
+  background-color: yellow;
+  grid-area: garden-tips;
+ 
 }

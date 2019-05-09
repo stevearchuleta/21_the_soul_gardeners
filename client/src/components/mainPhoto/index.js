@@ -4,8 +4,8 @@ import './style.css';
 
 const mainPhoto = () => {
   return(
-    <div>
-<div className="item main-photo">FLOWER PHOTO</div>
+    <div className="item photo">
+<div>FLOWER PHOTO</div>
     </div>
   )
 }

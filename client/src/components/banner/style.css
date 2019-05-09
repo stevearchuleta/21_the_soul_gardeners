@@ -1,5 +1,4 @@
 .banner{
   background-color: pink;
-  
-  
+  grid-area: banner; 
 }

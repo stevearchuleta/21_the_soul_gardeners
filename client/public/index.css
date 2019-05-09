@@ -1,5 +1,4 @@
-/* 
-// Positioning Method #1: Grid Line Numbers
+/* // Positioning Method #1: Grid Line Numbers
 // .container{
 //   background-color: #eee;
 //   width: 1000px;
@@ -172,10 +171,10 @@
 //   background-color: orangered;
 //   grid-row: footer-start / footer-end;
 //   grid-column: col-start / grid-end;
-// } */
+// }
 
 
-/* // Positioning Method #3: Grid Area Names */
+// Positioning Method #3: Grid Area Names */
 .container{
   background-color: #eee;
   width: 1000px;
@@ -199,4 +198,68 @@ grid-template-areas:  "logo header login"
   font-size: 30px;
   font-family: sans serif;
   color: grey;
+}
+
+.logo{
+  background-color: forestgreen;
+  grid-area: logo;
+}
+
+.header{
+  background-color: lightgreen; 
+  grid-area: header;
+}
+
+.login{
+  background-color: lightblue;
+  grid-area: login;
+}
+
+.garden-tips{
+  background-color: yellow;
+  grid-area: garden-tips;
+ 
+}
+
+.banner{
+  background-color: pink;
+  grid-area: banner;
+  
+  
+}
+
+.main-photo{
+  background-color: orange;
+ grid-area: photo;
+}
+
+.daily-journal{
+  background-color: violet;
+  grid-area: journal;
+}
+
+.inspiration{
+  background-color: purple;
+  grid-area: inspiration;
+}
+
+.tips-div{
+  background-color: yellow;
+  grid-area: empty-tips;
+}
+
+.forum{
+  background-color: skyblue;
+  grid-area: forum;
+}
+
+.insp-div{
+  background-color: purple;
+  grid-area: empty-insp;
+}
+
+.footer{
+  background-color: orangered;
+  grid-area: footer;
+  
 }
