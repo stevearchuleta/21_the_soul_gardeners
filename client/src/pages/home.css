@@ -1,14 +1,199 @@
+/* 
+// Positioning Method #1: Grid Line Numbers
+// .container{
+//   background-color: #eee;
+//   width: 1000px;
+//   margin: 30px auto;
+  
+//   display:grid;
+//   grid-template-rows: 150px 150px 450px 450px 450px 150px;
+//   grid-template-columns: 1fr 3fr 2fr;
+//   grid-gap: 30px;
+// }
+
+// .item{
+//   padding: 20px;
+//   font-size: 30px;
+//   font-family: sans serif;
+//   color: grey;
+// }
+
+// .logo{
+//   background-color: forestgreen;
+// }
+
+// .header{
+//  background-color: lightgreen; 
+// }
+
+// .login{
+//   background-color: lightblue;
+// }
+
+// .garden-tips{
+//   background-color: yellow;
+//  grid-row: 2 / span 2;
+// }
+
+// .banner{
+//   background-color: pink;
+  
+  
+// }
+
+// .main-photo{
+//   background-color: orange;
+//  grid-row: 3 / span 1;
+//   grid-column: 2 / span 1;
+  
+// }
+
+// .daily-journal{
+//   background-color: violet;
+//   grid-column: 3 / -1;
+//   grid-row: 2 / span 2; 
+  
+// }
+
+// .inspiration{
+//   background-color: purple;
+//  grid-row: 4 / 7;
+//   grid-column: 1 / span 1;
+ 
+// }
+
+// .tips-div{
+//   background-color: yellow;
+//   grid-row: 4 / span 2;
+// }
+
+// .qa-forum{
+//   background-color: skyblue;
+//  grid-row: 4 / 5;
+//   grid-column: 3 / span 1;
+// }
+
+// .inspiration-div{
+//   background-color: purple;
+//   grid-row: 5 / 6;
+//   grid-column: 3 / span 1;
+// }
+
+// .footer{
+//   background-color: orangered;
+//   grid-row: 6 /7;
+//   grid-column: 2 / -1;
+// }
+
+
+
+// Positioning Method #2: Grid Line Names
+
+// .container{
+//   background-color: #eee;
+//   width: 1000px;
+//   margin: 30px auto;
+  
+//   display:grid;
+//   grid-template-rows: [header-start] 150px [header-end banner-start] 150px [banner-end photo-start] 450px [photo-end empty-div-one-start] 450px [empty-div-one-end empty-div-two-start] 450px [empty-div-two-end footer-start] 150px [footer-end];
+//   grid-template-columns: [grid-start] 1fr [col-start] 3fr [col-end] 2fr [grid-end];
+//   grid-gap: 30px;
+// }
+
+// .item{
+//   padding: 20px;
+//   font-size: 30px;
+//   font-family: sans serif;
+//   color: grey;
+// }
+
+// .logo{
+//   background-color: forestgreen;
+// }
+
+// .header{
+//  background-color: lightgreen; 
+// }
+
+// .login{
+//   background-color: lightblue;
+// }
+
+// .garden-tips{
+//   background-color: yellow;
+//  grid-row: banner-start / photo-end;
+// }
+
+// .banner{
+//   background-color: pink;
+  
+  
+// }
+
+// .main-photo{
+//   background-color: orange;
+//  grid-row: photo-start / photo-end;
+//   grid-column: col-start / col-end;
+  
+// }
+
+// .daily-journal{
+//   background-color: violet;
+//   grid-column: col-end / grid-end;
+//   grid-row: banner-start / empty-div-one-start; 
+  
+// }
+
+// .inspiration{
+//   background-color: purple;
+//  grid-row: empty-div-one-start / footer-end;
+//   grid-column: grid-start / col-start;
+ 
+// }
+
+// .tips-div{
+//   background-color: yellow;
+//   grid-row: empty-div-one-start / empty-div-two-end;
+// }
+
+// .qa-forum{
+//   background-color: skyblue;
+//  grid-row: empty-div-one-start / empty-div-two-start;
+//   grid-column: col-end / grid-end;
+// }
+
+// .inspiration-div{
+//   background-color: purple;
+//   grid-row: empty-div-two-start / empty-div-two-end;
+//   grid-column: col-end / grid-end;
+// }
+
+// .footer{
+//   background-color: orangered;
+//   grid-row: footer-start / footer-end;
+//   grid-column: col-start / grid-end;
+// } */
+
+
+/* // Positioning Method #3: Grid Area Names */
 .container{
   background-color: #eee;
   width: 1000px;
   margin: 30px auto;
   
   display:grid;
-  grid-template-rows: [header-start] 150px [header-end tips-start] 150px [tips-end photo-start] 450px 450px 450px 150px;
+  grid-template-rows: 150px 150px 450px 450px 450px 150px;
   grid-template-columns: 1fr 3fr 2fr;
   grid-gap: 30px;
-}
 
+
+grid-template-areas:  "logo header login"
+                      "garden-tips banner journal"
+                      "garden-tips photo journal"
+                      "inspiration empty-tips forum"
+                      "inspiration empty-tips empty-insp"
+                      "inspiration footer footer";
+}
 .item{
   padding: 20px;
   font-size: 30px;
@@ -18,67 +203,64 @@
 
 .logo{
   background-color: forestgreen;
+  grid-area: logo;
 }
 
 .header{
- background-color: lightgreen; 
+  background-color: lightgreen; 
+  grid-area: header;
 }
 
 .login{
   background-color: lightblue;
+  grid-area: login;
 }
 
 .garden-tips{
   background-color: yellow;
- grid-row: 2 / span 2;
+  grid-area: garden-tips;
+ 
 }
 
 .banner{
   background-color: pink;
+  grid-area: banner;
   
   
 }
 
 .main-photo{
   background-color: orange;
- grid-row: 3 / span 1;
-  grid-column: 2 / span 1;
-  
+ grid-area: photo;
 }
 
 .daily-journal{
   background-color: violet;
-  grid-column: 3 / -1;
-  grid-row: 2 / span 2; 
-  
+  grid-area: journal;
 }
 
 .inspiration{
   background-color: purple;
- grid-row: 4 / 7;
-  grid-column: 1 / span 1;
- 
+  grid-area: inspiration;
 }
 
 .tips-div{
   background-color: yellow;
-  grid-row: 4 / span 2;
+  grid-area: empty-tips;
 }
 
 .qa-forum{
   background-color: skyblue;
- grid-row: 4 / 5;
-  grid-column: 3 / span 1;
+  grid-area: forum;
 }
 
 .inspiration-div{
   background-color: purple;
-  grid-row: 5 / 6;
-  grid-column: 3 / span 1;
+  grid-area: empty-insp;
 }
 
 .footer{
   background-color: orangered;
-  grid-row: 6 /7;
-  grid-column: 2 / -1;
+  grid-area: footer;
+  
 }

@@ -5,7 +5,7 @@ import './style.css';
 const login = () => {
   return(
     <div>
-      <div className="item garden-tips">LOGIN</div>
+      <div className="item login">LOGIN</div>
     </div>
   )
 }

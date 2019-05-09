@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
+import Home from './pages/home'
 
 class App extends Component {
   fetchData = () => {
@@ -27,7 +28,7 @@ console.log(res.data);
         >
         </a>
       </header>
-  
+    <Home />
     </div>
   );
 }
