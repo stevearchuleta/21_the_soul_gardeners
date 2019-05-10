@@ -29,10 +29,6 @@ import TipLinks from './tipLinks';
     href: "/herbs"
   },
   {
-    name: "House Plants",
-    href: "/housePlants"
-  },
-  {
     name: "Mosses",
     href: "/mosses"
   },

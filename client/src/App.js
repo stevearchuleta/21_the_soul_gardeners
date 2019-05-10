@@ -6,7 +6,7 @@ import Home from './pages/home'
 
 class App extends Component {
   fetchData = () => {
-    axios("https://api.cybertaxonomy.org/col/name_catalogue.json?query=Platalea+leucorodia&query=Tara+spinosa").then(res => {
+    axios("/api/trefle").then(res => {
 console.log(res.data);
     })
   }
@@ -26,6 +26,7 @@ console.log(res.data);
           rel="noopener noreferrer">
         </a>
       </header>
+      <button onClick={this.fetchData}>fetch data</button>
     <Home />
     </div>
   );
