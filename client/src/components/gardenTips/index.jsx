@@ -81,10 +81,18 @@ import TipLinks from './tipLinks';
 const gardenTips = () => {
   return(
     <div className="item garden-tips">
-      <div>GARDEN TIPS</div>
+      <div className="card">
+        <div className="card-header">
+        GARDEN TIPS
+        </div>
       <ul>
-        {linkList.map(i => <TipLinks link={i} />)}
+        
+        {linkList.map(i => 
+        <button className="btn garden-tips-button"><TipLinks link={i}/>
+        </button>)}
+        
       </ul>
+    </div>
     </div>
   )
 }

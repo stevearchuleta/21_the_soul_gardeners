@@ -195,27 +195,6 @@ grid-template-areas:  "logo header login"
                       "inspiration footer footer";
 }
 
-/* @media (max-width: 899px) {
-  grid-template-areas:
-  "logo header login"
-  "garden-tips banner journal"
-  "garden-tips empty-tips journal"
-  "inspiration empty-tips forum"
-  "inspiration  empty-insp photo"
-  "inspiration footer footer";
-}
-
-@media (min-width: 900px) {
-  …
-  grid-template-areas:
-  "logo header login"
-  "garden-tips banner journal"
-  "garden-tips empty-tips journal"
-  "inspiration empty-tips forum"
-  "inspiration  empty-insp photo"
-  "inspiration footer footer";
-} */
-
 .item{
   padding: 10px;
   font-size: 17px;
@@ -226,3 +205,37 @@ grid-template-areas:  "logo header login"
 ul {
   list-style-type: none;
 }
+
+
+/* @media (max-width: 600px) {
+  grid-template-areas:
+  "logo header login"
+  "garden-tips banner journal"
+  "garden-tips empty-tips journal"
+  "inspiration empty-tips forum"
+  "inspiration  empty-insp photo"
+  "inspiration footer footer"
+} */
+
+
+/* @media (min-width: 600px) {
+grid-template-areas:
+"login"
+"logo"
+"header"
+"banner"
+"journal"
+"journal"
+"photo"
+"garden-tips"
+"garden-tips"
+"empty-tips"
+"empty-tips"
+"inspiration"
+"inspiration" 
+"inspiration"
+"empty-insp"
+"forum"
+"footer" 
+"footer"
+} */

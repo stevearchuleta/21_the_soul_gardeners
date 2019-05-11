@@ -50,7 +50,20 @@ import InspirationButtons from './inspirationButtons'
   },
   {
     title: "Energy & Action",
-    poem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    // poem: "Energy & Action
+    // Pigments of Zinnias,
+    // Beyond their Radiance of
+    // Energies and Actions,
+    // Scrub the Earth’s Dryness;
+    // Repressing Nothing:
+    // Vitality Flows!
+    
+    // While Solitary Long-Stems
+    // Peek Outwardly into Fear’s Eyes,
+    // Attracting both Butterflies and Hummingbirds -
+    // Flying Determinately -
+    // Their times are now!"
+    image: "/client/public/img/IMG_3719.jpg"
   },
   {
     title: "Sanctuary & Peace",
@@ -78,7 +91,22 @@ import InspirationButtons from './inspirationButtons'
   },
   {
     title: "Purification & Healing",
-    poem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    // poem: "Purification and Healing
+
+    // Temperate Climates
+    // Yield Fields of Lavender,
+    // Who Release Every Unnecessary Color,
+    // Save Purple;
+    
+    // Spiking Purely Through Resolve,
+    // Cellularly,
+    // Restoration Manifests Readily
+    // In Their Full Sun Habitats.
+    // When the Sandy or Gravelly Soils
+    // Require Purging,
+    // The Lavender Cleanses:
+    // Clearly and With Healing."
+    image: ""
   },
   {
     title: "Courage & Inspiration",
@@ -113,10 +141,18 @@ import InspirationButtons from './inspirationButtons'
 const inspiration = () => {
   return(
     <div className="item inspiration">
-      <div>INSPIRATION</div>
+      <div className="card">
+        <div className="card-header">
+        INSPIRATION
+        </div>
       <ul>
-        {buttonList.map(i => <InspirationButtons link={i} />)}
+        
+        {buttonList.map(i =>
+        <button className="btn garden-tips-button"><InspirationButtons link={i}/>
+        </button>)}
+
       </ul>
+    </div>
     </div>
   )
 }
