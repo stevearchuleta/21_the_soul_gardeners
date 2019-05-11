@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component }from 'react';
+import axios from 'axios';
 import './style.css';
 import TipLinks from './tipLinks';
 
@@ -78,23 +79,46 @@ import TipLinks from './tipLinks';
   },
 ]
 
-const gardenTips = () => {
-  return(
-    <div className="item garden-tips">
-      <div className="card">
-        <div className="card-header">
-        GARDEN TIPS
-        </div>
-      <ul>
-        
-        {linkList.map(i => 
-        <button className="btn garden-tips-button"><TipLinks link={i}/>
-        </button>)}
-        
-      </ul>
-    </div>
-    </div>
-  )
+class gardenTips extends Component{
+
+  state = {
+    name : ''
+  }
+  
+  fetchData = (event) => {
+    event.preventDefault();
+    axios("/api/trefle/" + this.state.name).then(res => { console.log(res.data);
+    })
+  }
+
+  nameChange = (event) => {
+    this.setState({
+      name : event.target.value
+    })
+  }
+
+  render(){
+    return(
+      <div className="item garden-tips">
+        <div className="card">
+          <div className="card-header">
+          GARDEN TIPS
+          </div>
+        <form>
+          Enter Plant Name: <input type="text" value={this.state.name} onChange={this.nameChange}></input>
+          <input type="submit" value="Submit" onClick={this.fetchData}></input>
+        </form>
+        <ul>
+          
+          {linkList.map(i => 
+          <button className="btn garden-tips-button"><TipLinks link={i}/>
+          </button>)}
+          
+        </ul>
+      </div>
+      </div>
+    )
+        }
 }
 
 

@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 //app.use(app.router);
-router.use(routes)
+//router.use(routes)
 app.use(routes);
 // routes.initialize(app);
 

@@ -3,7 +3,7 @@ const trefleController = require("../../controllers/trefleController");
 
 
 // Matches with "/api/trefles"
-router.route("/")
+router.route("/:name")
   .get(trefleController.getTrefle)
 
 
