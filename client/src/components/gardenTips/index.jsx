@@ -99,23 +99,22 @@ class gardenTips extends Component{
 
   render(){
     return(
-      <div className="item garden-tips">
-        <div className="card">
+      <div className="card item garden-tips">
+        
           <div className="card-header">
           GARDEN TIPS
           </div>
         <form>
-          Enter Plant Name: <input type="text" value={this.state.name} onChange={this.nameChange}></input>
+          <input type="text" value={this.state.name} onChange={this.nameChange}></input>
           <input type="submit" value="Submit" onClick={this.fetchData}></input>
         </form>
         <ul>
-          
-          {linkList.map(i => 
-          <button className="btn garden-tips-button"><TipLinks link={i}/>
-          </button>)}
-          
-        </ul>
-      </div>
+        
+        {linkList.map(i =>
+        <button className="btn garden-tips-button"><TipLinks link={i}/>
+        </button>)}
+
+      </ul>
       </div>
     )
         }

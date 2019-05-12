@@ -140,19 +140,17 @@ import InspirationButtons from './inspirationButtons'
 
 const inspiration = () => {
   return(
-    <div className="item inspiration">
-      <div className="card">
-        <div className="card-header">
-        INSPIRATION
-        </div>
+    <div className=" card item inspiration">
+      <div className="card-header">
+      INSPIRATION
+      </div>
+
       <ul>
-        
         {buttonList.map(i =>
         <button className="btn garden-tips-button"><InspirationButtons link={i}/>
         </button>)}
-
       </ul>
-    </div>
+
     </div>
   )
 }

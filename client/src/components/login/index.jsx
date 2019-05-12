@@ -4,8 +4,10 @@ import './style.css';
 
 const login = () => {
   return(
-    <div className="item login">
-      <div>LOGIN</div>
+    <div className="card item login">
+      <div className="card-header">
+        <div>LOGIN</div>
+      </div>
     </div>
   )
 }

@@ -11,7 +11,6 @@ module.exports = {
     axios.get("https://trefle.io/api/plants?common_name=" + req.params.name + "&token=MDdQVTNYMyttcFp5T2xIdU9tS1k4QT09")
     .then((d) => res.status(200).send(d.data))
     .catch(err => res.status(422).json(err));
-
   }
 
 };

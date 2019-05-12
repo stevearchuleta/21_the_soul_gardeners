@@ -8,9 +8,7 @@
   grid-area: garden-tips;
 }
 
-.btn{
-/* list-style-type: none; */
-}
+a { color: inherit; } 
 
 .btn{
   position: relative;
@@ -19,7 +17,7 @@
   cursor: pointer;
   display: block;
   background-color: blanchedalmond;
-  font-style: 16p;
+  font-style: 16px;
   font-weight: bold;
   color: gray;
   text-transform: uppercase;
@@ -27,6 +25,9 @@
   padding: 6px;
   border-radius: 20px;
   box-shadow: 0 6px #5f5f5e;
+  margin: 2px;
+  align-content: center;
+  
 }
 
 .btn:hover {
