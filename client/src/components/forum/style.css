@@ -5,6 +5,7 @@
  } */
 
  .forum{
-  background-color: skyblue;
+  background-image: url('/img/full-bloom.png');
+  /* background-color: skyblue; */
   grid-area: forum;
 }

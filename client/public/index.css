@@ -186,7 +186,7 @@
   grid-gap: 30px;
 
 
-grid-template-areas:  "logo header login"
+grid-template-areas:  "header header login"
                       "garden-tips banner journal"
                       "garden-tips photo journal"
                       "inspiration empty-tips forum"

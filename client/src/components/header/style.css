@@ -1,4 +1,14 @@
  .header{
-  background-color: lightgreen; 
+background-image: url('/img/wild_flowers.png');
+/* background-color: lightgreen; */
   grid-area: header;
+  text-align: center;
+  font-family: sans-serif;
 }
+
+h1{
+  padding-left: 235px;
+  padding-top: 30px;
+  color: #272C34;
+}
+

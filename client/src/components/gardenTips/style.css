@@ -4,7 +4,8 @@
 } */
 
 .garden-tips{
-  background-color: yellow;
+  background-image: url('/img/full-bloom.png');
+  /* background-color: yellow; */
   grid-area: garden-tips;
 }
 

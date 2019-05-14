@@ -2,19 +2,43 @@ import React from 'react';
 import './style.css';
 import InspirationButtons from './inspirationButtons'
 
-// upload this array to my remote MongoDB Atlas database
+// // upload this array to my remote MongoDB Atlas database
  const buttonList = [
   {
     title: "Acceptance & Embracing",
-    poem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  //   poem: "Acceptance and Embracing
+
+  //   Like the hard and fast wooded Wisteria,
+  //   All of life advances upon unconditional love;
+  //   The moist grounding of acceptance,
+  //   And well-drained commitment to embracing,
+  //   Yields powerful blessings:
+  //   Purple, violet, pink, or white pendulous racemes,
+  //   Casting shadows and celebrating light,
+  //   Wholeness is never suppressed,
+  //   But powerful experiences wrap vines of worthiness
+  //   Onto the soul,
+  //   While sweet fragrances please the wondrous self."
   },
   {
-    title: "Opening & Beginning",
-    poem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  },
-  {
-    title: "Voyage & Adventure",
-    poem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  //   title: "Opening & Beginning",
+  //   poem: Openings and Beginnings
+
+  //   A planting of corms in autumn,
+  //   The wisest of delayed gratifications,
+  //   Brings forth the receptivity of the mighty crocus.
+  //   First, and ready for winter’s end,
+  //   ’Tis dainty, but opens wide and full.
+  //   Cup-shaped, yet solitary,
+  //   The crocus calls forth a new cycle,
+  //   And it’s magic and miracles spice up
+  //   Even the drabbest sustenance -
+  //   By Saffron from its stigmas -
+  //   Wiping its palate clean. anim id est laborum."
+  // },
+  // {
+  //   title: "Voyage & Adventure",
+  //   poem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   },
   {
     title: "Radiance & Light",
@@ -147,7 +171,7 @@ const inspiration = () => {
 
       <ul>
         {buttonList.map(i =>
-        <button className="btn garden-tips-button"><InspirationButtons link={i}/>
+        <button className="btn inspiration-button"><InspirationButtons link={i}/>
         </button>)}
       </ul>
 

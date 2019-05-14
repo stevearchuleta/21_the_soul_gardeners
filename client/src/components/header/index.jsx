@@ -5,7 +5,9 @@ import './style.css';
 const header = () => {
   return(
     <div className="item header">
-      <div>HEADER</div>
+      <div>HEADER
+        {/* <h1>Every Gardener Is A Soul Gardener</h1> */}
+      </div>
     </div>
   )
 }

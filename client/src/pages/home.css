@@ -176,8 +176,9 @@
 
 
 /* // Positioning Method #3: Grid Area Names */
-.container{
-  background-color: #eee;
+.container-fluid{
+  /* background-image: url('/img/morocco.png'); */
+  background-color: #FB8080;
   width: 1000px;
   margin: 30px auto;
   
@@ -187,12 +188,18 @@
   grid-gap: 30px;
 
 
-grid-template-areas:  "logo header login"
+grid-template-areas:  "header header login"
                       "garden-tips banner journal"
                       "garden-tips empty-tips journal"
-                      "inspiration empty-tips forum"
-                      "inspiration  empty-insp photo"
+                      "inspiration empty-tips photo"
+                      "inspiration  empty-insp forum"
                       "inspiration footer footer";
+}
+
+.full-width-div {
+  position: absolute;
+  width: 100%;
+  /* left: 0; */
 }
 
 .item{
@@ -200,6 +207,7 @@ grid-template-areas:  "logo header login"
   font-size: 17px;
   font-family: sans serif;
   color: black;
+  border-radius: 25px;
 }
 
 ul {

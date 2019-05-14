@@ -1,4 +1,7 @@
 .banner{
-  background-color: pink;
+  background-image: url('/img/white_garden_sissinghurst_s.jpg');
+  background-size: 100%;
+  background-position: center center;
+  /* background-color: pink; */
   grid-area: banner; 
 }

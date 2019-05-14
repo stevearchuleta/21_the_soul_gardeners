@@ -16,7 +16,7 @@ import Footer from '../components/footer'
 
 
 const Home = () => {
-  return <div className="container">
+  return <div className="container-fluid full-width-div">
   <Logo/>
   <Login/>
   <Header/>

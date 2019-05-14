@@ -1,4 +1,5 @@
 .login{
-  background-color: lightblue;
+  background-image: url('/img/wild_flowers.png');
+  /* background-color: lightblue; */
   grid-area: login;
 }

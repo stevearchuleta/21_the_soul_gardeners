@@ -87,7 +87,7 @@ class gardenTips extends Component{
   
   fetchData = (event) => {
     event.preventDefault();
-    axios("/api/trefle/" + this.state.name).then(res => { console.log(res.data);
+    axios("/api/harvestHelper/" + this.state.name).then(res => { console.log(res.data);
     })
   }
 
@@ -102,8 +102,8 @@ class gardenTips extends Component{
       <div className="card item garden-tips">
         
           <div className="card-header">
-          GARDEN TIPS
-          </div>
+          PLANT INFO
+          </div><br />
         <form>
           <input type="text" value={this.state.name} onChange={this.nameChange}></input>
           <input type="submit" value="Submit" onClick={this.fetchData}></input>

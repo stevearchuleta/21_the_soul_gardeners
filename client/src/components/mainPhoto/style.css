@@ -5,6 +5,7 @@
  } */
 
  .photo{
-  background-color: orange;
+  background-image: url('/img/wild_flowers.png');
+  /* background-color: orange; */
  grid-area: photo;
 }

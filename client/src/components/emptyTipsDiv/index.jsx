@@ -4,8 +4,10 @@ import './style.css';
 
 const emptyTipsDiv = () => {
   return(
-    <div className="item empty-tips">
-      <div>EMPTY GARDEN TIPS DIV</div>
+    <div className="card item empty-tips">
+    <div className="card-header">
+      <div>PLANT INFO</div>
+    </div>
     </div>
   )
 }

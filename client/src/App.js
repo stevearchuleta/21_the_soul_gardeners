@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import logo from './cherry-blossom-1295009_960_720.png';
 import axios from 'axios';
 import './App.css';
 import Home from './pages/home'
@@ -26,7 +26,7 @@ console.log(res.data);
           rel="noopener noreferrer">
         </a>
       </header>
-      <button onClick={this.fetchData}>fetch data</button>
+      {/* <button onClick={this.fetchData}>fetch data</button> */}
     <Home />
     </div>
   );

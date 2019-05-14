@@ -5,6 +5,7 @@
 } */
 
 .journal{
+  background-image: url('/img/full-bloom.png');
   background-color: violet;
   grid-area: journal;
 }

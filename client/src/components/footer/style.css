@@ -5,6 +5,7 @@
  } */
 
  .footer{
-  background-color: orangered;
+  background-image: url('/img/wild_flowers.png');
+  /* background-color: orangered; */
   grid-area: footer; 
 }

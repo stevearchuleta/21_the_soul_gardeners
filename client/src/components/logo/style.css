@@ -1,4 +1,11 @@
 .logo{
+  background-image: url('/cherry-blossom-1295009_960_720.png');
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+  
   background-color: forestgreen;
   grid-area: logo;
 }

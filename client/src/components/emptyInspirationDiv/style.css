@@ -5,6 +5,7 @@
  } */
 
  .empty-insp{
-  background-color: purple;
+  background-image: url('/img/full-bloom.png');
+  /* background-color: purple; */
   grid-area: empty-insp;
 }

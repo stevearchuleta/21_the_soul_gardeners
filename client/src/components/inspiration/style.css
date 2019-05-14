@@ -5,7 +5,8 @@
  } */
 
  .inspiration{
-  background-color: purple;
+   background-image: url('/img/full-bloom.png');
+  /* background-color: purple; */
   grid-area: inspiration;
 }
 
@@ -15,7 +16,7 @@
   border: none;
   cursor: pointer;
   display: block;
-  background-color: blanchedalmond;
+  background-color: rgba(243, 238, 93, 0.091);
   font-style: 16px;
   font-weight: bold;
   color: gray;
