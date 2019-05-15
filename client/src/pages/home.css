@@ -178,14 +178,15 @@
 /* // Positioning Method #3: Grid Area Names */
 .container-fluid{
   /* background-image: url('/img/morocco.png'); */
-  background-color: #FB8080;
+  background-image: url('/img/wild_flowers.png');
+  /* background-color: #FB8080; */
   width: 1000px;
   margin: 30px auto;
   
   display:grid;
   grid-template-rows: 150px 150px 450px 450px 450px 150px;
   grid-template-columns: 1fr 3fr 2fr;
-  grid-gap: 30px;
+  grid-gap: 10px;
 
 
 grid-template-areas:  "header header login"
@@ -207,7 +208,7 @@ grid-template-areas:  "header header login"
   font-size: 17px;
   font-family: sans serif;
   color: black;
-  border-radius: 25px;
+  border-radius: 0;
 }
 
 ul {

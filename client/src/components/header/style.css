@@ -1,5 +1,5 @@
  .header{
-background-image: url('/img/wild_flowers.png');
+  background-image: url('/img/full-bloom.png');
 /* background-color: lightgreen; */
   grid-area: header;
   text-align: center;
