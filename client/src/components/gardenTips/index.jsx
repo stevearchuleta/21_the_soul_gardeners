@@ -109,7 +109,7 @@ class gardenTips extends Component{
       <div className="card item garden-tips">
         
           <div className="card-header">
-          PLANT INFO
+          PLANT &nbsp;&nbsp;INFORMATION
           </div>
           
           <br />

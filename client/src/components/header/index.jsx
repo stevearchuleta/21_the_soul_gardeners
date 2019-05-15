@@ -6,8 +6,8 @@ const header = () => {
   return(
     <div className="item header">
       <div>
-        <h1>We Believe In Gardening</h1>
-        <h3>The Soil As Well As The Soul</h3>
+        <h1 className='header-text'>We Believe In Gardening The Soil
+        </h1><h1>As Well As The Soul</h1>
       </div>
     </div>
   )

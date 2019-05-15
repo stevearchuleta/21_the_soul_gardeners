@@ -11,6 +11,11 @@
 
 a { color: inherit; } 
 
+ul{
+  list-style-type: none;
+  display: inline-grid;
+}
+
 .btn{
   position: relative;
   outline: none;
@@ -29,7 +34,7 @@ a { color: inherit; }
   margin: auto;
   align-content: center;
   text-align: center;
-  /* padding-bottom: 6px; */
+  /* padding-bottom: 0px; */
   
 }
 

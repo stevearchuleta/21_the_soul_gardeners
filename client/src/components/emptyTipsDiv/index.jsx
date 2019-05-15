@@ -42,10 +42,12 @@ class emptyTipsDiv extends Component{
   render(){
   return(
     <div className="card item empty-tips">
-    <div className="card-header">
-      <div>PLANT INFO</div>
-    </div>
-      <h4>{this.state.vegetables[0] && this.state.vegetables[0].name}</h4>
+        
+      <div className="card-header">
+        <div>PLANT &nbsp;&nbsp;INFORMATION</div>
+      </div>
+      
+      <h4> {this.state.vegetables[0] && this.state.vegetables[0].name} </h4>
     
     </div>
   )

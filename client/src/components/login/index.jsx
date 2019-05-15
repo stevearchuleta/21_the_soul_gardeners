@@ -6,7 +6,7 @@ const login = () => {
   return(
     <div className="card item login">
       <div className="card-header">
-        <div>LOGIN</div>
+        <div>REGISTER or... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOGIN</div>
       </div>
     </div>
   )

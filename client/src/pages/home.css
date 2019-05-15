@@ -181,8 +181,9 @@
   background-image: url('/img/wild_flowers.png');
   /* background-color: #FB8080; */
   width: 1000px;
-  margin: 30px auto;
-  
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display:grid;
   grid-template-rows: 150px 150px 450px 450px 450px 150px;
   grid-template-columns: 1fr 3fr 2fr;
