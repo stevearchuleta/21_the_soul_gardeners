@@ -3,7 +3,7 @@ const harvestHelperController = require("../../controllers/harvestHelperControll
 
 
 // Matches with "/api/harvestHelper"
-router.route("/:name")
+router.route("/")
   .get(harvestHelperController.getHarvestHelper)
 
 

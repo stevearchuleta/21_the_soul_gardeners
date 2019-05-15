@@ -2,6 +2,7 @@ import React, { Component }from 'react';
 import axios from 'axios';
 import './style.css';
 import TipLinks from './tipLinks';
+import HarvestHelper from './harvestHelper';
 
 // upload this array to my remote MongoDB Atlas database
  const linkList = [
@@ -82,19 +83,25 @@ import TipLinks from './tipLinks';
 class gardenTips extends Component{
 
   state = {
-    name : ''
+    name : '',
+    plants: []
   }
   
-  fetchData = (event) => {
-    event.preventDefault();
-    axios("/api/harvestHelper/" + this.state.name).then(res => { console.log(res.data);
-    })
-  }
-
   nameChange = (event) => {
     this.setState({
       name : event.target.value
     })
+  }
+
+  componentDidMount(){
+      axios.get("/api/harvestHelper")
+      .then((res) => {
+      //console.log(res.data);
+      const names = res.data.map(datum => datum.name).sort()
+      console.log(names);
+      this.setState({ plants: names })
+    })
+    .catch(err => console.log(err));
   }
 
   render(){
@@ -103,21 +110,31 @@ class gardenTips extends Component{
         
           <div className="card-header">
           PLANT INFO
-          </div><br />
-        <form>
-          <input type="text" value={this.state.name} onChange={this.nameChange}></input>
-          <input type="submit" value="Submit" onClick={this.fetchData}></input>
-        </form>
-        <ul>
-        
-        {linkList.map(i =>
-        <button className="btn garden-tips-button"><TipLinks link={i}/>
-        </button>)}
+          </div>
+          
+          <br />
 
-      </ul>
+            <div class="dropdown">
+            <select>
+              {this.state.plants.map(plant => (
+                <option value={plant}>{plant}</option>
+              ))}
+            </select>
+            </div>
+  
+          <ul>
+          {linkList.map(i =>
+            <button className="btn garden-tips-button">
+              <TipLinks link={i}/>
+            </button>
+            )
+          }
+          </ul>
+        
       </div>
+      
     )
-        }
+  }
 }
 
 

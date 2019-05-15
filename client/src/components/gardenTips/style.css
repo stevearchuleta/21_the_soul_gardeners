@@ -23,11 +23,13 @@ a { color: inherit; }
   color: gray;
   text-transform: uppercase;
   letter-spacing: 2px;
-  padding: 6px;
+  padding: 12px;
   border-radius: 20px;
   box-shadow: 0 6px #5f5f5e;
-  margin: 2px;
+  margin: auto;
   align-content: center;
+  text-align: center;
+  /* padding-bottom: 6px; */
   
 }
 
@@ -42,4 +44,17 @@ top: 6px;
 }
 
 
-
+.container-for-menu {
+  position: relative;
+  display: inline-block;
+}
+.button-for-menu {
+  padding: 0;
+  width: 50px;
+  border: 0;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  outline: 0;
+  font-size: 40px;
+}

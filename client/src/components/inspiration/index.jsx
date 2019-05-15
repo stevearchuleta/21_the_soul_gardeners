@@ -21,7 +21,7 @@ import InspirationButtons from './inspirationButtons'
   //   While sweet fragrances please the wondrous self."
   },
   {
-  //   title: "Opening & Beginning",
+    title: "Opening & Beginning",
   //   poem: Openings and Beginnings
 
   //   A planting of corms in autumn,
