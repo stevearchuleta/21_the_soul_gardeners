@@ -1,5 +1,4 @@
 import React, { Component }from 'react';
-import axios from 'axios';
 import './style.css';
 import TipLinks from './tipLinks';
 import HarvestHelper from './harvestHelper';
@@ -83,41 +82,33 @@ import HarvestHelper from './harvestHelper';
 class gardenTips extends Component{
 
   state = {
-    name : '',
-    plants: []
+    id : null
   }
   
   nameChange = (event) => {
     this.setState({
-      name : event.target.value
+      id : event.target.value
     })
+    this.props.changePlant(event.target.value);
   }
 
-  componentDidMount(){
-      axios.get("/api/harvestHelper")
-      .then((res) => {
-      //console.log(res.data);
-      const names = res.data.map(datum => datum.name).sort()
-      console.log(names);
-      this.setState({ plants: names })
-    })
-    .catch(err => console.log(err));
-  }
+  
 
   render(){
     return(
       <div className="card item garden-tips">
         
           <div className="card-header">
-          PLANT &nbsp;&nbsp;INFORMATION
+          PLANT &nbsp;&nbsp;CATEGORIES
           </div>
           
           <br />
 
             <div class="dropdown">
-            <select>
-              {this.state.plants.map(plant => (
-                <option value={plant}>{plant}</option>
+            <select onChange={this.nameChange}>
+              <option value={null}>Select a Vegatable...</option>
+              {this.props.plants.map((plant, i) => (
+                <option value={i}>{plant.name}</option>
               ))}
             </select>
             </div>

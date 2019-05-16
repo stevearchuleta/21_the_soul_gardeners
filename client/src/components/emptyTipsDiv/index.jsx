@@ -6,39 +6,6 @@ import axios from 'axios';
 
 class emptyTipsDiv extends Component{
 
-  state = {
-    vegetables: []
-  }
-
-  componentDidMount(){
-    axios.get("/api/harvestHelper")
-    .then((res) => {
-    console.log(res.data)
-    for (let i =0; i < res.data.length; i++){
-      console.log(res.data[i].name);
-      console.log(res.data[i].description);
-      console.log(res.data[i].optimal_sun);
-      console.log(res.data[i].optimal_soil);
-      console.log(res.data[i].when_to_plant);
-      console.log(res.data[i].growing_from_seed);
-      console.log(res.data[i].transplanting);
-      console.log(res.data[i].spacing);
-      console.log(res.data[i].planting_considerations);
-      console.log(res.data[i].watering);
-      console.log(res.data[i].feeding);
-      console.log(res.data[i].other_care);
-      console.log(res.data[i].diseases);
-      console.log(res.data[i].pests);
-      console.log(res.data[i].harvesting);
-      console.log(res.data[i].storage_use);
-      console.log(res.data[i].image_url);
-    }
-    this.setState({vegetables: res.data});
-    })
-    // res.status(200).send(d.data))
-    // .catch(err => res.status(422).json(err));
-  
-  }
   render(){
   return(
     <div className="card item empty-tips">
@@ -47,7 +14,26 @@ class emptyTipsDiv extends Component{
         <div>PLANT &nbsp;&nbsp;INFORMATION</div>
       </div>
       
-      <h4> {this.state.vegetables[0] && this.state.vegetables[0].name} </h4>
+      {this.props.plant && 
+        <div className="plant-tips">
+          <h4>{this.props.plant.name}</h4>
+          <p><b>Description:&nbsp;</b>{this.props.plant.description}</p>
+          <p><b>Sun:&nbsp;</b>{this.props.plant.optimal_sun}</p>
+          <p><b>Soil:&nbsp;</b>{this.props.plant.optimal_soil}</p>
+          <p><b>Planting Considerations:&nbsp;</b>{this.props.plant.planting_considerations}</p>
+          <p><b>When to Plant:&nbsp;</b>{this.props.plant.when_to_plant}</p>
+          <p><b>Growing From Seed:&nbsp;</b>{this.props.plant.growing_from_seed}</p>
+          <p><b>Transplanting:&nbsp;</b>{this.props.plant.transplanting}</p>
+          <p><b>Spacing:&nbsp;</b>{this.props.plant.spacing}</p>
+          <p><b>Watering:&nbsp;</b>{this.props.plant.watering}</p>
+          <p><b>Feeding:&nbsp;</b>{this.props.plant.feeding}</p>
+          <p><b>Other Care:&nbsp;</b>{this.props.plant.other_care}</p>
+          <p><b>Diseases:&nbsp;</b>{this.props.plant.diseases}</p>
+          <p><b>Pests:&nbsp;</b>{this.props.plant.pests}</p>
+          <p><b>Harvesting:&nbsp;</b>{this.props.plant.harvesting}</p>
+          <p><b>Storage Use:&nbsp;</b>{this.props.plant.storage_use}</p>
+        </div>
+      }
     
     </div>
   )

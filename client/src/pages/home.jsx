@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react";
+import axios from 'axios';
 import "./home.css"
 import Logo from '../components/logo'
 import Login from '../components/login'
@@ -15,21 +16,46 @@ import Footer from '../components/footer'
 
 
 
-const Home = () => {
-  return <div className="container-fluid full-width-div">
+class Home extends Component {
+
+  state = {
+    plants: [],
+    selectedPlant: null
+  }
+
+  changePlant = (id) => {
+    this.setState({
+      selectedPlant: id
+    })
+    console.log(id);
+  }
+
+  componentDidMount(){
+    axios.get("/api/harvestHelper")
+    .then((res) => {
+    
+    this.setState({ plants: res.data.sort((a,b) => a.name > b.name ? 1 : -1) })
+  })
+  .catch(err => console.log(err));
+}
+
+  render(){
+  return (
+  <div className="container-fluid full-width-div">
   <Logo/>
   <Login/>
   <Header/>
-  <GardenTips/>
+  <GardenTips plants={this.state.plants} changePlant={this.changePlant} />
   <Banner/>
   <DailyJournal/>
   <Inspiration/>
   <MainPhoto/>
   <Forum/>
-  <EmptyTipsDiv/>
+  <EmptyTipsDiv plant={this.state.plants[this.state.selectedPlant]} />
   <EmptyInspirationDiv/>
   <Footer/>
-</div>
+</div>)
+  }
 }
 
 export default Home;
