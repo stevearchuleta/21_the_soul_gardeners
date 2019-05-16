@@ -79,6 +79,7 @@ import HarvestHelper from './harvestHelper';
   },
 ]
 
+
 class gardenTips extends Component{
 
   state = {
@@ -91,8 +92,6 @@ class gardenTips extends Component{
     })
     this.props.changePlant(event.target.value);
   }
-
-  
 
   render(){
     return(
