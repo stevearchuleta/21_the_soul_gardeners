@@ -41,11 +41,10 @@
 // <link rel="stylesheet" href="carousel.css"/>
 // Begin DemoSliderControls
 
-
-
-
 import React from 'react';
 import './style.css';
+
+
 
 
 const dailyJournal = () => {

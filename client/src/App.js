@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
-import logo from './cherry-blossom-1295009_960_720.png';
 import axios from 'axios';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import logo from './cherry-blossom-1295009_960_720.png';
 import './App.css';
-import Home from './pages/home'
+import Home from './pages/home';
+import GameOne from './pages/gameOne';
+import GameTwo from './pages/gameTwo';
+
+
 
 class App extends Component {
   fetchData = () => {
@@ -27,7 +32,15 @@ console.log(res.data);
         </a>
       </header>
       {/* <button onClick={this.fetchData}>fetch data</button> */}
-    <Home />
+    <Router>
+      <div>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/game-one" component={GameOne} />
+      <Route exact path="/game-two" component={GameTwo} />
+      </div>
+    </Router>
+  
+  
     </div>
   );
 }
