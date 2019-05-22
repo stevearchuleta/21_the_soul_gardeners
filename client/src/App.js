@@ -10,11 +10,7 @@ import GameTwo from './pages/gameTwo';
 
 
 class App extends Component {
-  fetchData = () => {
-    axios("/api/trefle").then(res => {
-console.log(res.data);
-    })
-  }
+  
   render(){
   
   return (

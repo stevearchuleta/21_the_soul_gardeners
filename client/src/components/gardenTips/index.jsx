@@ -83,7 +83,8 @@ import HarvestHelper from './harvestHelper';
 class gardenTips extends Component{
 
   state = {
-    id : null
+    id : null,
+    category : null
   }
   
   nameChange = (event) => {
@@ -92,6 +93,12 @@ class gardenTips extends Component{
     })
     this.props.changePlant(event.target.value);
   }
+
+handleButtonClick = (name) => {
+  this.setState({
+    category : name
+  })
+}
 
   render(){
     return(
@@ -114,8 +121,8 @@ class gardenTips extends Component{
   
           <ul>
           {linkList.map(i =>
-            <button className="btn garden-tips-button">
-              <TipLinks link={i}/>
+            <button className="btn garden-tips-button" onClick={() => this.handleButtonClick(i.name)}>
+              {i.name}
             </button>
             )
           }

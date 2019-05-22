@@ -35,11 +35,20 @@ class Home extends Component {
     .then((res) => {
     
     this.setState({ plants: res.data.sort((a,b) => a.name > b.name ? 1 : -1) })
+  
   })
   .catch(err => console.log(err));
+
+  const category = "annuals";
+  axios.get(`/api/gardenTips/${ category }`).then(res => {
+  this.setState({ tips: res.data.articles})
+  })
 }
 
+
+
   render(){
+    console.log(this.state.tips);
   return (
   <div className="container-fluid full-width-div">
   <Logo/>
@@ -51,7 +60,7 @@ class Home extends Component {
   <Inspiration/>
   <MainPhoto/>
   <Forum/>
-  <EmptyTipsDiv plant={this.state.plants[this.state.selectedPlant]} />
+  <EmptyTipsDiv plant={this.state.plants[this.state.selectedPlant]} category={this.state.tips}/>
   <EmptyInspirationDiv/>
   <Footer/>
 </div>)

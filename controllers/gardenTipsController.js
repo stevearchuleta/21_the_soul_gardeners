@@ -1,37 +1,34 @@
-const db = require("../models");
 
-// Defining methods for the GardenTipsController
+const axios = require('axios');
+const db = require("../models");
+const cheerio = require('cheerio');
+
+
+// Defining methods for the harvestHelperController
+ 
+
 module.exports = {
-  findAll: function(req, res) {
-    db.GardenTips
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  findById: function(req, res) {
-    db.GardenTips
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  create: function(req, res) {
-    db.GardenTips
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  update: function(req, res) {
-    db.GardenTips
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  remove: function(req, res) {
-    db.GardenTips
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
+  getGardenTips: function(req, res) {
+
+    let category = req.params.category;
+    console.log(req.params.category);
+    //res.send(category);
+    axios.get(`http://www.gardenanswers.com/${category}`)
+    .then(function(response) {
+      // res.send(response.data);
+      // Load the html body from axios into cheerio
+      var $ = cheerio.load(response.data);
+        // Save the text and href of each link
+      var articles = [];
+      $("article.fusion-post-large").each((i, element) => {
+        var title = $(element).find(".entry-title").text();
+        // var link = $(element).find(".entry-title a").attr("href");
+        var paragraph = $(element).find("p").text();
+        articles.push({title, paragraph});
+      });
+        res.json({articles})
+      
+      })
       .catch(err => res.status(422).json(err));
   }
 };

@@ -192,7 +192,7 @@
 
 grid-template-areas:  "header header login"
                       "garden-tips banner photo"
-                      "garden-tips empty-tips journal"
+                      "garden-tips empty-tips photo"
                       "inspiration empty-tips journal"
                       "inspiration  empty-insp forum"
                       "inspiration footer footer";

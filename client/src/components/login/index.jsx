@@ -9,24 +9,8 @@ const login = () => {
         <div>REGISTER or... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOGIN</div>
       </div>
 
-      <form action="#" class="form">
-          <div className="form-item">
-            <input type="text" class="form-input"
-            placeholder="first name"
-            aria-label="first name"/>
-            
-          </div>
-
-          <div className="form-item">
-            <input type="email" class="form-input"
-            placeholder="email" aria-label="email"/>
-          </div>
-
-          <button className="form-button" type="submit">register</button>
-
-        </form>
-
-        <form action="#" class="form">
+      <form action="http://localhost:3001/auth/local" class="form" method="POST">
+         
           <div className="form-item">
             <input type="text" class="form-input"
             placeholder="userName"
