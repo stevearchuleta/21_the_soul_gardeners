@@ -6,75 +6,75 @@ import HarvestHelper from './harvestHelper';
 // upload this array to my remote MongoDB Atlas database
  const linkList = [
   {
-    name: "Annuals",
+    category: "Annuals",
     href: "/annuals"
   },
   {
-    name: "Beneficial Organisms",
+    category: "Beneficial Organisms",
     href: "/beneficialOrganisms"
   },
   {
-    name: "Fruit Trees",
+    category: "Fruit Trees",
     href: "/fruitTrees"
   },
   {
-    name: "Grasses",
+    category: "Grasses",
     href: "/grasses"
   },
   {
-    name: "Ground Cover",
+    category: "Ground Cover",
     href: "/groundCover"
   },
   {
-    name: "Herbs",
+    category: "Herbs",
     href: "/herbs"
   },
   {
-    name: "Mosses",
+    category: "Mosses",
     href: "/mosses"
   },
   {
-    name: "Perennials",
+    category: "Perennials",
     href: "/perennials"
   },
   {
-    name: "Plant Diseases",
+    category: "Plant Diseases",
     href: "/plantDiseases"
   },
   {
-    name: "Plant Pests",
+    category: "Plant Pests",
     href: "/plantPests"
   },
   {
-    name: "Shade Plants",
+    category: "Shade Plants",
     href: "/shadePlants"
   },
   {
-    name: "Shrubs",
+    category: "Shrubs",
     href: "/shrubs"
   },
   {
-    name: "Succulents",
+    category: "Succulents",
     href: "/succulets"
   },
   {
-    name: "Trees",
+    category: "Trees",
     href: "/trees"
   },
   {
-    name: "Tropical Plants",
+    category: "Tropical Plants",
     href: "/tropicalPlants"
   },
   {
-    name: "Vegetable Plants",
+    category: "Vegetable Plants",
     href: "/vegetablePlants"
   },
   {
-    name: "Vines",
+    category: "Vines",
     href: "/vines"
   },
   {
-    name: "Weeds",
+    category: "Weeds",
     href: "weeds"
   },
 ]
@@ -84,7 +84,7 @@ class gardenTips extends Component{
 
   state = {
     id : null,
-    category : null
+    // category : null
   }
   
   nameChange = (event) => {
@@ -94,11 +94,6 @@ class gardenTips extends Component{
     this.props.changePlant(event.target.value);
   }
 
-handleButtonClick = (name) => {
-  this.setState({
-    category : name
-  })
-}
 
   render(){
     return(
@@ -121,8 +116,8 @@ handleButtonClick = (name) => {
   
           <ul>
           {linkList.map(i =>
-            <button className="btn garden-tips-button" onClick={() => this.handleButtonClick(i.name)}>
-              {i.name}
+            <button className="btn garden-tips-button" onClick={() => this.props.getCategory(i.category)}>
+              {i.category}
             </button>
             )
           }

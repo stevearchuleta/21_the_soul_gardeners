@@ -7,6 +7,7 @@ import axios from 'axios';
 class emptyTipsDiv extends Component{
 
   render(){
+   console.log(this.props.category);
   return(
     <div className="card item empty-tips">
         
@@ -34,7 +35,19 @@ class emptyTipsDiv extends Component{
           <p><b>Storage Use:&nbsp;</b>{this.props.plant.storage_use}</p>
         </div>
       }
-    
+    {this.props.category &&
+      this.props.category.map(c => {
+        return(
+          <div key={c.title}>
+          <h4>{ c.title }</h4>
+          <p>{ c.paragraph }</p>
+        </div>
+        )
+      })
+
+    }
+      
+
     </div>
   )
 }}

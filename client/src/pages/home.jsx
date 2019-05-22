@@ -20,7 +20,8 @@ class Home extends Component {
 
   state = {
     plants: [],
-    selectedPlant: null
+    selectedPlant: null,
+    category: null
   }
 
   changePlant = (id) => {
@@ -28,6 +29,14 @@ class Home extends Component {
       selectedPlant: id
     })
     console.log(id);
+  }
+
+  getCategory = (category) => {
+    axios.get(`api/gardenTips/${category}`).then(res => {
+      this.setState({ 
+        category: res.data.articles
+      })
+      })
   }
 
   componentDidMount(){
@@ -39,10 +48,7 @@ class Home extends Component {
   })
   .catch(err => console.log(err));
 
-  const category = "annuals";
-  axios.get(`/api/gardenTips/${ category }`).then(res => {
-  this.setState({ tips: res.data.articles})
-  })
+
 }
 
 
@@ -54,13 +60,13 @@ class Home extends Component {
   <Logo/>
   <Login/>
   <Header/>
-  <GardenTips plants={this.state.plants} changePlant={this.changePlant} />
+  <GardenTips plants={this.state.plants} changePlant={this.changePlant} getCategory={this.getCategory}/>
   <Banner/>
   <DailyJournal/>
   <Inspiration/>
   <MainPhoto/>
   <Forum/>
-  <EmptyTipsDiv plant={this.state.plants[this.state.selectedPlant]} category={this.state.tips}/>
+  <EmptyTipsDiv plant={this.state.plants[this.state.selectedPlant]} category={this.state.category}/>
   <EmptyInspirationDiv/>
   <Footer/>
 </div>)

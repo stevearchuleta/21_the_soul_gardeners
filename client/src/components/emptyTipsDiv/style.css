@@ -7,6 +7,7 @@
   background-image: url('/img/full-bloom.png');
   /* background-color: yellow; */
   grid-area: empty-tips;
+  overflow: scroll;
 }
 
 h4{
