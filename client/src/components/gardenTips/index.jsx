@@ -84,7 +84,7 @@ class gardenTips extends Component{
 
   state = {
     id : null,
-    // category : null
+    category : null
   }
   
   nameChange = (event) => {

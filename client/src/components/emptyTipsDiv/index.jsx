@@ -36,11 +36,11 @@ class emptyTipsDiv extends Component{
         </div>
       }
     {this.props.category &&
-      this.props.category.map(c => {
+      this.props.category.map(category => {
         return(
-          <div key={c.title}>
-          <h4>{ c.title }</h4>
-          <p>{ c.paragraph }</p>
+          <div key={category.title}>
+          <h4>{ category.title }</h4>
+          <p>{ category.paragraph }</p>
         </div>
         )
       })

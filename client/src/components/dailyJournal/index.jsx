@@ -41,19 +41,22 @@
 // <link rel="stylesheet" href="carousel.css"/>
 // Begin DemoSliderControls
 
-import React from 'react';
+import React, { Component }from 'react';
 import './style.css';
+import Carousel from './carousel/Carousel';
 
 
 
 
-const dailyJournal = () => {
+class DailyJournal extends Component{
+  render(){
   return(
     <div className="item journal">
       <div>DAILY JOURNAL</div>
+      <Carousel />
     </div>
   )
 }
+}
 
-
-export default dailyJournal
+export default DailyJournal

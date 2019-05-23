@@ -34,6 +34,8 @@ class Home extends Component {
   getCategory = (category) => {
     axios.get(`api/gardenTips/${category}`).then(res => {
       this.setState({ 
+        plants: [],
+        selectedPlant: null,
         category: res.data.articles
       })
       })
