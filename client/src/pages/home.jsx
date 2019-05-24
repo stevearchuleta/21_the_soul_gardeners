@@ -27,14 +27,16 @@ class Home extends Component {
   changePlant = (id) => {
     this.setState({
       selectedPlant: id
+
     })
     console.log(id);
   }
 
   getCategory = (category) => {
     axios.get(`api/gardenTips/${category}`).then(res => {
+      console.log("getCategory", res.data.articles);
       this.setState({ 
-        plants: [],
+        // plants: [],
         selectedPlant: null,
         category: res.data.articles
       })
@@ -68,7 +70,7 @@ class Home extends Component {
   <Inspiration/>
   <MainPhoto/>
   <Forum/>
-  <EmptyTipsDiv plant={this.state.plants[this.state.selectedPlant]} category={this.state.category}/>
+  <EmptyTipsDiv plant={this.state.selectedPlant ? this.state.plants[this.state.selectedPlant] : null} category={this.state.selectedPlant ? null : this.state.category}/>
   <EmptyInspirationDiv/>
   <Footer/>
 </div>)
