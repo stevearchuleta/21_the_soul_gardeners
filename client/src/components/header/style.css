@@ -1,14 +1,27 @@
  .header{
-  background-image: url('/img/full-bloom.png');
-/* background-color: lightgreen; */
   grid-area: header;
+  background-image: url('/img/full-bloom.png');
   text-align: center;
   font-family: sans-serif;
+  font-size: 1.2em
 }
 
-h1{
+.header-text-1{
   font-family: cursive;
   color: darkolivegreen;
+  text-align: left;
   margin-top: 5px;
+  margin-bottom: 15px;
+  letter-spacing: .1em;
+
 }
 
+.header-text-2{
+  font-family: cursive;
+  color: darkolivegreen;
+  text-align: right;
+  padding-bottom: 20px;
+  padding-right: 5px;
+  letter-spacing: .1em;
+  margin-top: 0px;
+}

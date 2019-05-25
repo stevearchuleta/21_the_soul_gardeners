@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import "./home.css"
-import Logo from '../components/logo'
+// import Logo from '../components/logo'
 import Login from '../components/login'
 import Header from '../components/header'
 import GardenTips from '../components/gardenTips'
@@ -61,7 +61,7 @@ class Home extends Component {
     console.log(this.state.tips);
   return (
   <div className="container-fluid full-width-div">
-  <Logo/>
+  {/* <Logo/> */}
   <Login/>
   <Header/>
   <GardenTips plants={this.state.plants} changePlant={this.changePlant} getCategory={this.getCategory}/>

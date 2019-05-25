@@ -9,24 +9,54 @@ const login = () => {
         <div>REGISTER or... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOGIN</div>
       </div>
 
-      <form action="http://localhost:3001/auth/local" class="form" method="POST">
+      <form action="http://localhost:3001/auth/local" className="form reg-form" method="POST">
          
-          <div className="form-item">
-            <input type="text" class="form-input"
-            placeholder="userName"
-            aria-label="userName"/>
+          <div className="form-item register">
+            <input type="text" className="form-input"
+            placeholder="   Name:"
+            aria-label="Name"/>
             
           </div>
 
-          <div className="form-item">
-            <input type="password" class="form-input"
-            placeholder="password" aria-label="password"/>
+          <div className="form-item email">
+            <input type="email:" className="form-input"
+            placeholder="   emaiil:" aria-label="email"/>
+          </div>
+          
+          <div className="form-item password">
+            <input type="text" className="form-input"
+            placeholder="   password:"
+            aria-label="Name"/>
+            
           </div>
 
-          <button className="form-button" type="submit">login</button>
+          <div className="form-item confirm-password">
+            <input type="confirm-password" className="form-input"
+            placeholder="   confirm password:" aria-label="email"/>
+          </div>
+
+          <button className="form-button reg-btn" type="submit"> register </button>
 
         </form>
 
+        <form action="http://localhost:3001/auth/local" className="form reg-form" method="POST">
+         
+
+          <div className="form-item email">
+            <input type="email" className="form-input"
+            placeholder="   emaiil:" aria-label="email"/>
+          </div>
+          
+          <div className="form-item password">
+            <input type="text" className="form-input"
+            placeholder="   password:"
+            aria-label="Name"/>
+            
+          </div>
+
+          <button className="form-button reg-btn" type="submit"> login </button>
+
+        </form>
     </div>
   )
 }
