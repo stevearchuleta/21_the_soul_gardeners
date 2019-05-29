@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import axios from 'axios';
 import "./home.css"
 // import Logo from '../components/logo'
-import Login from '../components/login'
 import Header from '../components/header'
+// import Register from '..components.register'
+import Login from '../components/login'
 import GardenTips from '../components/gardenTips'
 import Banner from '../components/banner'
 import DailyJournal from '../components/dailyJournal'
@@ -13,10 +14,13 @@ import Forum from '../components/forum'
 import EmptyTipsDiv from '../components/emptyTipsDiv'
 import EmptyInspirationDiv from '../components/emptyInspirationDiv'
 import Footer from '../components/footer'
+import UserContext from "../utilities/userContext";
 
 
 
 class Home extends Component {
+
+  // static contextType = UserContext;
 
   state = {
     plants: [],
@@ -58,6 +62,7 @@ class Home extends Component {
 
 
   render(){
+    // const { user } = this.context
     console.log(this.state.tips);
   return (
   <div className="container-fluid full-width-div">

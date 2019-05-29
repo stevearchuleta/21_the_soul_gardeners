@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const trefleController = require("../../controllers/trefleController");
+// const jwt = require('jsonwebtoken');
+// const isAuthenticated = require("../../controllers.authentication");
+
 
 
 // Matches with "/api/trefles"

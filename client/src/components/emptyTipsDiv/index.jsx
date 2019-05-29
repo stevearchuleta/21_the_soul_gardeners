@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './style.css';
 import axios from 'axios';
+// import UserContext from '../utilities/UserContext';
+// import { Redirect } from 'react-router-dom';
 
 
 
@@ -9,6 +11,9 @@ class emptyTipsDiv extends Component{
   render(){
    console.log(this.props.category);
   return(
+    // <UserContext.Consumer>
+    // {({user})} => (
+    // user ? ( 
     <div className="card item empty-tips">
         
       <div className="card-header">
@@ -49,6 +54,9 @@ class emptyTipsDiv extends Component{
       
 
     </div>
+     // ) : <div>Please Login</div>)
+    //   )}
+    // </UserContext.Consumer>
   )
 }}
 

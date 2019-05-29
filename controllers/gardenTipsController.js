@@ -2,6 +2,8 @@
 const axios = require('axios');
 const db = require("../models");
 const cheerio = require('cheerio');
+// const isAuthenticated = require("../../controller.authentication");
+
 
 
 // Defining methods for the harvestHelperController
@@ -13,7 +15,9 @@ module.exports = {
     let category = req.params.category;
     console.log(req.params.category);
     //res.send(category);
-    axios.get(`http://www.gardenanswers.com/${category}`)
+    axios
+    .use(isAuthenticated)
+    .get(`http://www.gardenanswers.com/${category}`)
     .then(function(response) {
       // res.send(response.data);
       // Load the html body from axios into cheerio

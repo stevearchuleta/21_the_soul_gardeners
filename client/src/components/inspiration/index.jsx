@@ -1,6 +1,9 @@
 import React from 'react';
 import './style.css';
 import InspirationButtons from './inspirationButtons'
+// import UserContext from '../utilities/UserContext';
+// import { Redirect } from 'react-router-dom';
+
 
 // // upload this array to my remote MongoDB Atlas database
  const buttonList = [
@@ -164,6 +167,10 @@ import InspirationButtons from './inspirationButtons'
 
 const inspiration = () => {
   return(
+   // <UserContext.Consumer>
+    // {({user})} => (
+    // user ? ( 
+
     <div className=" card item inspiration">
       <div className="card-header">
       INSPIRATION
@@ -176,6 +183,10 @@ const inspiration = () => {
       </ul>
 
     </div>
+
+   // ) : <div>Please Login</div>)
+    //   )}
+    // </UserContext.Consumer>
   )
 }
 

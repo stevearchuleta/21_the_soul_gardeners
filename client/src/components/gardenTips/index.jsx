@@ -2,6 +2,8 @@ import React, { Component }from 'react';
 import './style.css';
 import TipLinks from './tipLinks';
 import HarvestHelper from './harvestHelper';
+// import UserContext from '../utilities/UserContext';
+// import { Redirect } from 'react-router-dom';
 
 // upload this array to my remote MongoDB Atlas database
  const linkList = [
@@ -97,6 +99,10 @@ class gardenTips extends Component{
 
   render(){
     return(
+     // <UserContext.Consumer>
+    // {({user})} => (
+    // user ? ( 
+
       <div className="card item garden-tips">
         
           <div className="card-header">
@@ -124,7 +130,10 @@ class gardenTips extends Component{
           </ul>
         
       </div>
-      
+
+       // ) : <div>Please Login</div>)
+    //   )}
+    // </UserContext.Consumer>
     )
   }
 }

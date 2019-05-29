@@ -1,37 +1,48 @@
 const db = require("../models");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-// Defining methods for the userController
+// Defining methods for the usersController
 module.exports = {
-  findAll: function(req, res) {
+  
+  login: function(req, res) {
+    const { username, password } = req.body;
     db.User
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
+      .findOne({ username })
+      .then(userFromStevesDB => {
+        bcrypt.compare(password, userFromStevesDB.password, function(err, same){
+          if (same) {
+            const token = jwt.sign({
+              username: userFromStevesDB.username,
+              id: userFromStevesDB._id
+            }, "super_secret")
+            return res.JSON({
+              username: userFromStevesDB.username,
+              id: userFromStevesDB.id,
+              token
+            })
+          } else {
+            return res.json(404).json({
+              error: "Password does not match the Username"
+            })
+          }
+        })
+      })
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
-    db.User
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+
   create: function(req, res) {
-    db.User
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  update: function(req, res) {
-    db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  remove: function(req, res) {
-    db.User
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    const { username, password } = req.body;
+    bcrypt.hash(password, 10, function(err, hash) {
+      const user = {
+        username,
+        password: hash
+      }
+  
+      db.User
+        .create(user)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    });
   }
 };
