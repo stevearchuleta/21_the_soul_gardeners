@@ -27,10 +27,14 @@
 //    handleLogin = (event) => {
 //    const { email, password } = this.state;
 //    const { history } = this.props;
+//    
 //    API.login({ email, password })
 //    .then(res => {
 //    alert("You have successfully logged in")
 //    history.push("/");
+//    })
+//    .catch(err => { 
+//    console.log(err);
 //    })
 //    }
   

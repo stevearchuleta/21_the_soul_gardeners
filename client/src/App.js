@@ -6,7 +6,7 @@ import './App.css';
 import Home from './pages/home';
 // import Register from './pages/register';
 // import Login from './pages/login';
-// import { UserProvider } from './utilities/UserContext';
+import { UserContext, UserProvider } from './utilities/userContext';
 import GameOne from './pages/gameOne';
 import GameTwo from './pages/gameTwo';
 
@@ -31,7 +31,7 @@ function App() {
       </header>
       
       
-      {/* <UserProvider> */}
+      <UserProvider>
       <Router>
         <div>
 
@@ -51,7 +51,7 @@ function App() {
         </div>
       </Router>
 
-      {/* </UserProvider/> */}
+      </UserProvider>
 
     </div>
 

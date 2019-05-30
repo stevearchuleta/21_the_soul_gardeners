@@ -4,7 +4,7 @@ import "./home.css"
 // import Logo from '../components/logo'
 import Header from '../components/header'
 // import Register from '..components.register'
-import Login from '../components/login'
+import Login from '../components/loginWrapper'
 import GardenTips from '../components/gardenTips'
 import Banner from '../components/banner'
 import DailyJournal from '../components/dailyJournal'

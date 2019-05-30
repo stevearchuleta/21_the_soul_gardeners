@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './style.css';
-// import UserContext from '../utilities/UserContext';
+import { UserContext, UserProvider } from '../../utilities/userContext';
 // import { Redirect } from 'react-router-dom';
 
 const header = () => {
-  return(
-    // <UserContext.Consumer>
-    // {({user})} => (
-    // user ? ( 
+  const { state, dispatch } = useContext(UserContext);
 
+  console.log(state);
+
+  return(
     <div className="item header">
       <div>
         <h1 className='header-text-1'>Gardening The Soul...
@@ -18,19 +18,14 @@ const header = () => {
        
         <div>
           <h1 className="reg-message log-message welcome-message">
-            {/* I WANT THIS TO BE PLACED IN THE HEADER SECTION */}
-            {/*  {user ? (   */}
-            {/* <div>Welcome, {user.username}</div> */}
-            {/*   ) :   (     */}
+            {(state !== undefined && state.currentUser.email !== '') ? `Welcome ${state.currentUser.email}` :
+            `Please Log In` 
+            }
           </h1>
         </div>
      
       </div>
     </div>
-
-     // ) : <div>Please Login</div>)
-    //   )}
-    // </UserContext.Consumer>
   )
 }
 

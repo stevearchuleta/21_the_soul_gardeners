@@ -1,30 +1,28 @@
-import React, { Component } from 'react';
+import React, { useReducer } from 'react';
 
-const UserContext = React.createContext();
-
-export class UserProvider extends React.Component {
-  state = { 
-   currentUser: null } 
-
-  onLogIn = (user) => { 
-    this.setState({ currentUser: user
-    });
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'setUser':
+      return { ...state, currentUser: action.value };
+    case 'updateUser':
+      return { ...state, currentUser: action.value };
+    default:
+      return;
   }
+};
 
-  render(){
-    return(
-       <UserContext.Provider value={{
-          user: this.state.currentUser, 
-          onLogin: this.onLogin
-          
-          }} 
-      >
-        {this.props.children}
-        </UserContext.Provider>
+const initialState = { currentUser: { email: 'Leo@foodnome.com' } };
 
-    )
-  }
+const UserContext = React.createContext(initialState);
 
+function UserProvider(props) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <UserContext.Provider value={{ state, dispatch }}>
+      {props.children}
+    </UserContext.Provider>
+  );
 }
 
-export default UserContext
+export { UserContext, UserProvider };
