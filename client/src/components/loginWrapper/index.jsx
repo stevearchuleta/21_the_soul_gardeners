@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import './style.css';
-// import { Link } from ('react-router-dom');
 import { UserContext, UserProvider } from '../../utilities/userContext';
+// import { Link } from ('react-router-dom');
 // import { Redirect } from 'react-router-dom';
 
 
-const loginWrapper = () => {
-  const { state, dispatch } = useContext(UserContext); 
-  // ***SUNG aslo used '{(props)}' as a paramater above***
+const loginWrapper = (props) => {
+  const { state, dispatch } = useContext(UserContext);
 
   const handleChange = (event) => {
     // const { username, value } = event.target;
