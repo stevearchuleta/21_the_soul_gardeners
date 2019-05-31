@@ -1,9 +1,16 @@
 import React, { useContext } from 'react';
 import './style.css';
 import { UserContext, UserProvider } from '../../utilities/userContext';
-// import { Link } from ('react-router-dom');
+import Register from './register';
+
+
 // import { Redirect } from 'react-router-dom';
 
+// state = {
+//   username: "",
+//   password: "", 
+//   error: null
+// }
 
 const loginWrapper = (props) => {
   const { state, dispatch } = useContext(UserContext);
@@ -41,79 +48,12 @@ const loginWrapper = (props) => {
   return(
     <div className="card item login">
       <div className="card-header">
-        {state.currentUser.email}
-        <button 
-            className="form-button reg-btn" 
-            type="submit"
-            onClick={() => updateUser({email : "test@test.com"})}
-          >Test</button> 
+
+      
         <div>REGISTER or... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOGIN</div>
       </div>
 
-      <form action="http://localhost:3001/auth/local" className="form reg-form" method="POST">
-         
-          <div className="form-item register">
-            <input 
-              type="text" 
-              className="form-input"
-              name="username"          
-              placeholder="Name:"
-              aria-label="Name"
-              autoComplete="off"
-              //value={username} 
-              //onChange={this.handleChange}
-            />  
-          </div>
-
-          <div className="form-item email">
-            <input 
-              type="email:" 
-              className="form-input"
-              name="email"
-              placeholder="emaiil:"
-              aria-label="email"
-              autoComplete="off"
-              //value={username} 
-              //onChange={this.handleChange}
-              />
-          </div>
-          
-          <div className="form-item password">
-            <input 
-            type="text" 
-            type="password"
-            className="form-input"
-            name="password"
-            placeholder="password:"
-            aria-label="Name"
-            //value={password}
-            //onChange={this.handleChange}
-            />
-          </div>
-
-          <div className="form-item confirm-password">
-            <input 
-                type="text" 
-                type="password"
-                className="form-input"
-                name="password"
-                placeholder="password:"
-                aria-label="Name"
-                //value={password}
-                //onChange={this.handleChange}
-              />
-          </div>
-
-          <button 
-            className="form-button reg-btn" 
-            type="submit"
-            onClick={() => updateUser({currentUser : {email : "test@test.com"}})}
-          > 
-            register 
-          </button>
-            {/* <Link className="reg-item" to="/register">register</Link> */}
-
-        </form>
+      <Register />
 
 
         <form action="http://localhost:3001/auth/local" className="form reg-form" method="POST">
@@ -151,12 +91,11 @@ const loginWrapper = (props) => {
           > 
           login 
           </button>
-            {/* <Link className="log-item" to="/login">login</Link> */}
+           
 
         </form>
     </div>
   );
 }
-
 
 export default loginWrapper

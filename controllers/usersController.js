@@ -32,17 +32,17 @@ module.exports = {
   },
 
   create: function(req, res) {
-    const { username, password } = req.body;
+    const { name, email, password } = req.body;
     bcrypt.hash(password, 10, function(err, hash) {
       const user = {
-        username,
+        name,
+        email,
         password: hash
       }
-  
       db.User
-        .create(user)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+      .create(user)
+      .then(dbModel => res.json(dbModel))        
+      .catch(err => res.status(422).json(err));
     });
   }
 };
