@@ -38,7 +38,7 @@ class emptyTipsDiv extends Component{
           <p><b>Pests:&nbsp;</b>{this.props.plant.pests}</p>
           <p><b>Harvesting:&nbsp;</b>{this.props.plant.harvesting}</p>
           <p><b>Storage Use:&nbsp;</b>{this.props.plant.storage_use}</p>
-          {/* <img src=""> {this.props.plant.image_url} </img> */}
+          
         </div>
       }
       

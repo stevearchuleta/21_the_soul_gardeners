@@ -10,26 +10,16 @@ class MainPhoto extends Component {
     // <UserContext.Consumer>
     // {({user})} => (
     // user ? ( 
-      // <div className="card item empty-tips">
+      
     <div className="item photo"> 
       <div>FLOWER PHOTO</div>
       {this.props.plant &&
       <div className="plant-photo">
-                {this.props.plant.name}
-        <img src="">
-        {this.props.plant.image_url}
-        </img>
-      </div>
+                <div>{this.props.plant.name}</div>
+        <img src={`https://res-4.cloudinary.com/do6bw42am/image/upload/c_scale,f_auto,h_300/v1/${this.props.plant.image_url}`}/>
+        </div>
       }
-    </div>
-
-
-
-    //  {/* // ) : <div>Please Login</div>)
-    // //   )}
-    // // </UserContext.Consumer> */}
-      
-    //   </div>
+      </div>
     )  
   }
 }

@@ -1,10 +1,11 @@
-.slide{
+.slide {
   display: inline-block;
   vertical-align: top;
   border-right: 1px solid black;
   height: 570px;
   width: 374px;
   white-space: normal;
+  padding: 0px 35px;
 }
 
 .slide:last-child {
