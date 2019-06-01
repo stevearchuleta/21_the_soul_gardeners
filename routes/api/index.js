@@ -9,5 +9,6 @@ const etWater = require("./etWater");
 router.use("/users", userRoutes);
 router.use("/harvestHelper", harvestHelperRoutes);
 router.use('/gardenTips', gardenTipsRoutes);
+router.use('/etWater', etWater);
 
 module.exports = router;

@@ -17,6 +17,7 @@ class DailyJournal extends Component{
     <div className="item journal">
       <div>DAILY JOURNAL</div>
       <Carousel />
+      
     </div>
      // ) : <div>Please Login</div>)
     //   )}

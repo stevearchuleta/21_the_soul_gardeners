@@ -6,6 +6,7 @@ import Slide from './Slide';
 import scrollTo from './scrollToAnimate';
 import throttle from 'lodash.throttle';
 import classNames from 'classnames';
+// import App from './toDoForm/App'
 
 class Carousel extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class Carousel extends Component {
     var amountScrolled = carouselViewport.scrollLeft;
     var viewportLength = carouselViewport.clientWidth;
     var totalWidthOfCarousel = carouselViewport.scrollWidth;
-    console.log('scrolling', totalWidthOfCarousel, amountScrolled, viewportLength + amountScrolled )
+    console.log('scrolling', totalWidthOfCarousel, amountScrolled, viewportLength + amountScrolled, viewportLength )
     if ( amountScrolled + viewportLength === totalWidthOfCarousel ) {
         allTheWayRight = true;
     }
@@ -128,6 +129,7 @@ class Carousel extends Component {
       // var widthOfSlide = document.querySelector('.slide').offsetWidth;
       console.log('WHAT IS HERE', this.slide, findDOMNode(this.slide));
       var widthOfSlide = findDOMNode(this.slide).offsetWidth;
+      console.log(widthOfSlide);
       var timeToMoveOneSlide = 200;
       return {
         widthToScroll: numOfSlidesToScroll * widthOfSlide,

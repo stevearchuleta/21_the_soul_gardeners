@@ -16,7 +16,7 @@ module.exports = {
     console.log(req.params.category);
     //res.send(category);
     axios
-    .use(isAuthenticated)
+    // .use(isAuthenticated)
     .get(`http://www.gardenanswers.com/${category}`)
     .then(function(response) {
       // res.send(response.data);

@@ -73,7 +73,7 @@ class Home extends Component {
   <Banner/>
   <DailyJournal/>
   <Inspiration/>
-  <MainPhoto/>
+  <MainPhoto />
   <Forum/>
   <EmptyTipsDiv plant={this.state.selectedPlant ? this.state.plants[this.state.selectedPlant] : null} category={this.state.selectedPlant ? null : this.state.category}/>
   <EmptyInspirationDiv/>

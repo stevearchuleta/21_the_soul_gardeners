@@ -20,7 +20,7 @@ handleChange = (event) => {
    [password]: value,
    error: null
    });
-}
+  }
 
    handleLogin = (onLogin) => {
    const { email, password } = this.state;
@@ -28,7 +28,7 @@ handleChange = (event) => {
    API.login({ email, password })
    .then(res => {
    alert("You have successfully logged in"),
-   onLogin(res,data);
+   onLogin(res.data);
    })
    .catch(err => { 
    this.setState(err)
@@ -80,13 +80,13 @@ handleChange = (event) => {
           </button>
         </form>
 
-      )}
+        )
+      }
      
-  
-      )}
 
     </UserContext.Consumer>
-    }
-
+    )
+  }
+}
 
 export default login

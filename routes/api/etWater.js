@@ -5,7 +5,7 @@ const etWaterController = require("../../controllers/etWaterController");
 
 
 // Matches with "/api/etwater"
-router.route("/:")
+router.route("/")
   .get(etWaterController.getEtWater)
 
 
