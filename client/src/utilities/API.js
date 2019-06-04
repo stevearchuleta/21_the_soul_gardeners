@@ -22,6 +22,8 @@ export default {
   },
   login: function(userData) {
     return axios.post("api/users/login", userData);
+  },
+  getEtWater: function(region) {
+    return axios.get(`api/etwater/${region}`);
   }
-
-}
+};

@@ -11,7 +11,7 @@ const reducer = (state, action) => {
   }
 };
 
-const initialState = { currentUser: { email: 'stevearchuleta@me.com' } };
+const initialState = { currentUser: null };
 
 const UserContext = React.createContext(initialState);
 

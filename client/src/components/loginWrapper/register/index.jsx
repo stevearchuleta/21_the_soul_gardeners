@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import API from '../../../utilities/API';
- 
 
 class Registration extends Component {
 
@@ -22,10 +21,46 @@ class Registration extends Component {
    event.preventDefault();
    
    const { name, email, password, confirmPassword } = this.state;
+   
    console.log(name, email, password, confirmPassword);
    
+// start of validation
+let errors = [];
+// check required fields
+if(!name || !email || !password || !confirmPassword ) {
+  errors.push( { msg: 'Please complete all of the fields.' });
+}
+//   // check password match
+if(password !== confirmPassword) {
+  errors.push( { msg: 'Passwords do not match' });
+}
+//   // password length
+if(password.length < 6){
+  errors.push( { msg: 'Password must be at least 6 characters long' }); 
+}
+if(errors.length > 0) {
+  // res.render('register', {
+  //   errors,
+  //   name,
+  //   email,
+  //   password,
+  //   confirmPassword
+  // });
+  } else {
+  // validation passed
+
    API.register({ name, email, password, confirmPassword })
-   .then(res => {
+   .then(user => {
+    if(user){
+      // User already exists
+      errors.push({ msg: 'Email address is already registered.' })
+      // res.render('register', {
+      //   errors: errors,
+      //   name: name,
+      //   email: email,
+      //   password: password,
+      // });
+    }
     alert("A new registration has been created.")
     this.setState({
       name: "",
@@ -35,6 +70,7 @@ class Registration extends Component {
     })
    })
    }
+  }
 
    render() {
    const { name, email, password, confirmPassword } = this.state;

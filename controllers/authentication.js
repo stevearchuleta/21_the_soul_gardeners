@@ -1,25 +1,25 @@
-// const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
-// // jwt jsonwebtoken authorization (this is Middleware written by SUNG)
-// module.exports = function(req, res, next){
-//   const token = req.header("Authorization");
-//       let bearer = "";
-//       if ( token ) {
-//         bearer = token.replace("Bearer ", "");
-//       } else {
-//         return res.status(403).json({
-//           error: "Authorization required"
-//         })
-//       }
-  
-//       jwt.verify(bearer, "super_secret", function(err, decoded){
-//         if (err){
-//           return res.status(403).json({
-//             error: "Authorization required"
-//           })
-//         }
-//         console.log(decoded);
-//         req.user = decoded;
-//         next();
-//       })
-//     }
+// JWT Middleware (written by Sung to avoid having to write the same authentication funciton in each component; this way... the Authentication (like all middleware funcitons) is always run before everything else. First he put this code inside the server.js file, then he showed us that it's best placed into its own controller file).
+module.exports = function(req, res, next){
+  const token = req.header("Authorization");
+  let bearer = "";
+  if (token) {
+    bearer = token.replace("Bearer ", "");
+  } else {
+    return res.status(403).json({
+      error: "Authorization Required"
+    })
+  }
+
+  jwt.verify(bearer, "super-secret", function(err, decoded){
+    if(err){
+      return res.status(403).json({
+        error: "Authorization Required"
+      })
+    }
+    console.log(decoded);
+    req.user = decoded;
+    next();
+  });
+  };
