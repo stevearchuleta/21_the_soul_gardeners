@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import { UserContext } from "../../../utilities/userContext";
+import { ErrorContext } from "../../../utilities/errorContext";
 import API from "../../../utilities/API";
 
 class login extends Component {
@@ -18,8 +19,8 @@ class login extends Component {
     });
   };
 
-  handleLogin = evt => {
-    evt.preventDefault();
+  handleLogin = event => {
+    event.preventDefault();
     const { email, password } = this.state;
 
     API.login({ email, password })
@@ -42,7 +43,7 @@ class login extends Component {
                 type="email:"
                 className="form-input"
                 name="email"
-                placeholder="emaiil:"
+                placeholder="Email:"
                 aria-label="email"
                 autoComplete="off"
                 value={this.state.email}
@@ -56,7 +57,7 @@ class login extends Component {
                 type="password"
                 className="form-input"
                 name="password"
-                placeholder="password:"
+                placeholder="Password:"
                 aria-label="Name"
                 value={this.state.password}
                 onChange={this.handleChange}

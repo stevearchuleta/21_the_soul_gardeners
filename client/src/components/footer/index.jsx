@@ -28,7 +28,6 @@ class Footer extends Component {
         <div className="item footer">
           <div>RAINFALL and EVAPOTRANSPIRATION</div>
         </div>
-        <div>{JSON.stringify(this.state.rainFallInfo)}</div>
 
         <p>
           Evapotranspiration (ET) is the sum of evaporation and plant
@@ -37,6 +36,8 @@ class Footer extends Component {
           ET, water depletion amounts, plant types, soil composition, rainfall,
           and forecasts, and water only the amount needed.
         </p>
+        
+        
         <div className="form-item region">
           <input
             type="text"
@@ -55,7 +56,9 @@ class Footer extends Component {
         >
           Submit
         </button>
+        <div>{JSON.stringify(this.state.rainFallInfo)}</div>
       </div>
+
 
       // ) : <div>Please Login</div>)
       //   )}

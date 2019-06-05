@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import './style.css';
 import { UserContext, UserProvider } from '../../utilities/userContext';
+import { ErrorContext, ErrorProvider } from '../../utilities/errorContext';
 import Register from './register';
 import Login from './login';
 
@@ -14,7 +15,7 @@ import Login from './login';
 
 const loginWrapper = (props) => {
   const { state, dispatch } = useContext(UserContext);
-  // const { xxxxx, dispatch } = useContext(ErrorContext);
+  const { xxxxx, yyyyy } = useContext(ErrorContext);
   
    const updateUser = user => {
      console.log(user);

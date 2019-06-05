@@ -130,11 +130,11 @@ if(errors.length > 0) {
           />
       </div>
    
-      <div>
+      {/* <div>
         { errors.length > 0 ? errors.map((err) => (
         <h1>{err.msg}</h1>)) : ``
         }
-      </div>
+      </div> */}
       
 
       <button className="form-button reg-btn" type="submit"
