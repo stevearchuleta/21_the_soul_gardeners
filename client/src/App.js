@@ -32,6 +32,7 @@ function App() {
       
       
       <UserProvider>
+      {/* <ErrorProvider> */}
       <Router>
         <div>
 
@@ -50,7 +51,7 @@ function App() {
 
         </div>
       </Router>
-
+      {/* </ErrorProvider> */}
       </UserProvider>
 
     </div>

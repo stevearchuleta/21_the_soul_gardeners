@@ -7,7 +7,8 @@ class Registration extends Component {
     name: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
+    errors: false
   }
 
   handleChange = (event) => {
@@ -21,13 +22,15 @@ class Registration extends Component {
    event.preventDefault();
    
    const { name, email, password, confirmPassword } = this.state;
-   
    console.log(name, email, password, confirmPassword);
    
-// start of validation
-let errors = [];
-// check required fields
-if(!name || !email || !password || !confirmPassword ) {
+   
+   // start of validation
+   let errors = [];
+   // check required fields
+   
+   if(!name || !email || !password || !confirmPassword ) {
+  this.setState({ errors: true })
   errors.push( { msg: 'Please complete all of the fields.' });
 }
 //   // check password match
@@ -39,13 +42,7 @@ if(password.length < 6){
   errors.push( { msg: 'Password must be at least 6 characters long' }); 
 }
 if(errors.length > 0) {
-  // res.render('register', {
-  //   errors,
-  //   name,
-  //   email,
-  //   password,
-  //   confirmPassword
-  // });
+  this.setState({ errors: errors })
   } else {
   // validation passed
 
@@ -73,7 +70,8 @@ if(errors.length > 0) {
   }
 
    render() {
-   const { name, email, password, confirmPassword } = this.state;
+   const { name, email, password, confirmPassword, errors } = this.state;
+   console.log(this.state)
    return (
 
     <form className="form reg-form" >
@@ -97,7 +95,7 @@ if(errors.length > 0) {
           type="email:" 
           className="form-input"
           name="email"
-          placeholder="emaiil:"
+          placeholder="Email:"
           aria-label="email"
           autoComplete="off"
           value={email} 
@@ -112,7 +110,7 @@ if(errors.length > 0) {
           type="password"
           className="form-input"
           name="password"
-          placeholder="password:"
+          placeholder="Password:"
           aria-label="Name"
           value={password}
           onChange={this.handleChange}
@@ -125,18 +123,25 @@ if(errors.length > 0) {
             type="password"
             className="form-input"
             name="confirmPassword"
-            placeholder="password:"
+            placeholder="Confirm Password:"
             aria-label="Name"
             value={confirmPassword}
             onChange={this.handleChange}
           />
       </div>
+   
+      <div>
+        { errors.length > 0 ? errors.map((err) => (
+        <h1>{err.msg}</h1>)) : ``
+        }
+      </div>
+      
 
       <button className="form-button reg-btn" type="submit"
         
         onClick={this.handleRegistration}
       > 
-        register 
+        Register 
       </button>
 
     </form>

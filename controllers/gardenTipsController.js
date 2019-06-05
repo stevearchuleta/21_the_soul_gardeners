@@ -4,11 +4,7 @@ const db = require("../models");
 const cheerio = require('cheerio');
 // const isAuthenticated = require("../../controller.authentication");
 
-
-
-// Defining methods for the harvestHelperController
  
-
 module.exports = {
   getGardenTips: function(req, res) {
 
@@ -26,7 +22,7 @@ module.exports = {
       var articles = [];
       $("article.fusion-post-large").each((i, element) => {
         var title = $(element).find(".entry-title").text();
-        // var link = $(element).find(".entry-title a").attr("href");
+        // var image = $(element).find(".wp-post-image").attr("src");
         var paragraph = $(element).find("p").text();
         articles.push({title, paragraph});
       });

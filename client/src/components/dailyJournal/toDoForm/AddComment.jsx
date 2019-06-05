@@ -19,7 +19,7 @@ export class AddComment extends Component {
       <div>
         <form 
           onSubmit={ this.onSubmit } 
-          style={{ display: 'flex' }} 
+          style={{ display: 'flex', padding: '10px' }} 
           // action={ "/html/tags/html_form_tag_action.cfm" } 
           // method={ "post" }
         >

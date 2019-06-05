@@ -12,15 +12,15 @@ import InspirationButtons from './inspirationButtons'
   //   poem: "Acceptance and Embracing
 
   //   Like the hard and fast wooded Wisteria,
-  //   All of life advances upon unconditional love;
-  //   The moist grounding of acceptance,
-  //   And well-drained commitment to embracing,
+  //   All of life advances toward unconditional love;
+  //   The moist grounding of acceptance
+  //   And well-drained commitment to embracing
   //   Yields powerful blessings:
-  //   Purple, violet, pink, or white pendulous racemes,
-  //   Casting shadows and celebrating light,
-  //   Wholeness is never suppressed,
+  //   Purple, violet, pink, or white pendulous racemes
+  //   Cast shadows and celebrate light;
+  //   Wholeness is never suppressed --
   //   But powerful experiences wrap vines of worthiness
-  //   Onto the soul,
+  //   Onto the soul --
   //   While sweet fragrances please the wondrous self."
   },
   {
@@ -32,12 +32,12 @@ import InspirationButtons from './inspirationButtons'
   //   Brings forth the receptivity of the mighty crocus.
   //   First, and ready for winter’s end,
   //   ’Tis dainty, but opens wide and full.
-  //   Cup-shaped, yet solitary,
+  //   Cup-shaped yet solitary,
   //   The crocus calls forth a new cycle,
-  //   And it’s magic and miracles spice up
-  //   Even the drabbest sustenance -
-  //   By Saffron from its stigmas -
-  //   Wiping its palate clean. anim id est laborum."
+  //   While it’s magic and miracles spice up
+  //   Even the drabbest sustenance;
+  //   From its stigmas - Saffron -
+  //   Wiping the palate clean."
   // },
   // {
   //   title: "Voyage & Adventure",
@@ -79,17 +79,15 @@ import InspirationButtons from './inspirationButtons'
     title: "Energy & Action",
     // poem: "Energy & Action
     // Pigments of Zinnias,
-    // Beyond their Radiance of
-    // Energies and Actions,
-    // Scrub the Earth’s Dryness;
+    // Beyond the radiance of
+    // All energies and actions,
+    // Scrub the earth’s dryness.
+    // While solitary long stems
+    // Peek outwardly into fear’s eyes,
     // Repressing Nothing:
-    // Vitality Flows!
-    
-    // While Solitary Long-Stems
-    // Peek Outwardly into Fear’s Eyes,
-    // Attracting both Butterflies and Hummingbirds -
-    // Flying Determinately -
-    // Their times are now!"
+    // Their time is now!
+    // A determined vitality flows
+    // Attracting both Butterflies and Hummingbirds.
     image: "/client/public/img/IMG_3719.jpg"
   },
   {
@@ -120,19 +118,18 @@ import InspirationButtons from './inspirationButtons'
     title: "Purification & Healing",
     // poem: "Purification and Healing
 
-    // Temperate Climates
-    // Yield Fields of Lavender,
-    // Who Release Every Unnecessary Color,
-    // Save Purple;
-    
-    // Spiking Purely Through Resolve,
-    // Cellularly,
-    // Restoration Manifests Readily
-    // In Their Full Sun Habitats.
-    // When the Sandy or Gravelly Soils
-    // Require Purging,
-    // The Lavender Cleanses:
-    // Clearly and With Healing."
+    // Temperate climates
+    // Yield fields of lavender,
+    // Masking every unnecessary color,
+    // Save purple!
+    // Spiking purely through resolve -
+    // Cellularly - 
+    // A restoration readily manifests
+    // Within their full sun habitat.
+    // When the sandy or gravelly soils
+    // Require a purging,
+    // The lavender cleanses,
+    // Clearly and with ample healing."
     image: ""
   },
   {
