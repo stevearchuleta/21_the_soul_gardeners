@@ -32,31 +32,30 @@ class Registration extends Component {
    if(!name || !email || !password || !confirmPassword ) {
   this.setState({ errors: true })
   errors.push( { msg: 'Please complete all of the fields.' });
+  this.props.updateError(errors);
 }
 //   // check password match
 if(password !== confirmPassword) {
   errors.push( { msg: 'Passwords do not match' });
+  this.props.updateError(errors);
 }
 //   // password length
 if(password.length < 6){
-  errors.push( { msg: 'Password must be at least 6 characters long' }); 
+  errors.push( { msg: 'Password must be at least 6 characters long' });
+  this.props.updateError(errors); 
 }
 if(errors.length > 0) {
   this.setState({ errors: errors })
   } else {
-  // validation passed
+  
 
    API.register({ name, email, password, confirmPassword })
    .then(user => {
     if(user){
-      // User already exists
+    
       errors.push({ msg: 'Email address is already registered.' })
-      // res.render('register', {
-      //   errors: errors,
-      //   name: name,
-      //   email: email,
-      //   password: password,
-      // });
+      this.props.updateError(errors);
+     
     }
     alert("A new registration has been created.")
     this.setState({

@@ -1,15 +1,16 @@
-import React, { useReducer } from 'react';
+import React, { useReducer } from "react";
 
 const reducer = (state, action) => {
+  console.log(action);
   switch (action.type) {
-    case 'updateError':
+    case "setError":
       return { ...state, errors: action.value };
     default:
       return;
   }
 };
 
-const initialState = { errors:  []};
+const initialState = { errors: [] };
 
 const ErrorContext = React.createContext(initialState);
 

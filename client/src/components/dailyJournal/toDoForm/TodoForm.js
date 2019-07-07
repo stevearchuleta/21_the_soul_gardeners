@@ -49,7 +49,7 @@ class TodoForm extends Component {
 
   // Toggles between task isCompleted and/or task is !isComplete
   markComplete = id => {
-    // console.log(id)
+    console.log(id)
     this.setState({
       todos: this.state.todos.map(todo => {
         if (todo.id === id) {
@@ -72,21 +72,26 @@ class TodoForm extends Component {
   };
 
   addTodo = title => {
-    // console.log(task);
-    // const newTodo =
-    // {
-    //   id: uuid.v4(),
-    //   title: title,
-    //   completed: false
-    // }
-    axios
-      .post("https://jsonplaceholder.typicode.com/todos", {
-        title: title,
-        completed: false
-      })
-      .then(res => this.setState({ todos: [...this.state.todos, res.data] }));
+    this.setState({
+      todos: [...this.state.todos, {
+          id: uuid.v4(),
+          title: title,
+          isCompleted: false
+      }]
+    })
+    // axios
+    //   .post("https://jsonplaceholder.typicode.com/todos", {
+    //     title: title,
+    //     completed: false
+    //   })
+    //   .then(res => this.setState({ todos: [...this.state.todos, res.data] }));
   };
 
+
+  addComment = comment => {
+    console.log("COMMENT", comment);
+  }
+  
   render() {
     // console.log(this.state.todos)
     return (
@@ -97,7 +102,7 @@ class TodoForm extends Component {
           markComplete={this.markComplete}
           deleteTodo={this.deleteTodo}
         />
-        <AddComment />
+        <AddComment addComment={this.addComment}/>
       </React.Fragment>
     );
   }

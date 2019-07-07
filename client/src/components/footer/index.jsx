@@ -5,7 +5,7 @@ import "./style.css";
 class Footer extends Component {
   state = {
     region: "",
-    rainFallInfo: []
+    rainFallInfo: null
   };
 
   componentDidMount() {
@@ -56,7 +56,10 @@ class Footer extends Component {
         >
           Submit
         </button>
-        <div>{JSON.stringify(this.state.rainFallInfo)}</div>
+        <div>{(this.state.rainFallInfo !== null) ?  <div>
+          <p>Rain Fall:this.state.rainFallInfo.daily[Object.keys(this.state.rainFallInfo.daily)[0]][0].rainMm</p>
+          {/* <p>Avg Temp:this.state.rainFallInfo.daily[Object.keys(this.state.rainFallInfo.daily)[0]][0].rainMm</p> */}
+          </div> : <p></p>}</div>
       </div>
 
 

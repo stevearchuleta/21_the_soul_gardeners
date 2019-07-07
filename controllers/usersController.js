@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 // Defining methods for the usersController
 module.exports = {
   create: function(req, res) {
-    console.log(req.body);
+    console.log("USER", req.body);
     const { name, email, password, confirmPassword } = req.body;
 
     // start of validation

@@ -6,7 +6,7 @@ import { ErrorContext, ErrorProvider } from "../../utilities/errorContext";
 
 const header = () => {
   const { state, dispatch } = useContext(UserContext);
-  const { state: errors } = useContext(ErrorContext);
+  const errorContext = useContext(ErrorContext);
   console.log("TestingState" + state);
 
   return (
@@ -22,11 +22,11 @@ const header = () => {
                 : ``}
             </h1>
             
-            {/* <div>
-              { errors.length > 0 ? errors.map((err) => (
+            <div>
+              { errorContext.state.errors.length > 0 ? errorContext.state.errors.map((err) => (
               <h1>{err.msg}</h1>)) : ``
               }
-            </div> */}
+            </div>
 
         </div>
       </div>

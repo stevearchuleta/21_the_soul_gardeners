@@ -3,17 +3,21 @@ import React, { Component } from 'react'
 export class AddComment extends Component {
 
   state = {
-    comment: ''
+    comments: ''
   }
 
-  // onChange = (event) => this.setState({ [event.target.name]: event.target.value});
+  onChange = (event) => this.setState({ [event.target.name]: event.target.value});
 
   onSubmit = (event) => {
     event.preventDefault();
-    this.props.addComment(this.state.comment);
-    this.setState({ comment: "" })
+    this.props.addComment(this.state.comments);
+    console.log(this.props.addComment);
+    console.log("EVENT", this.state.comments);
+    // this.setState({ comments: "" });
   }
   
+
+
   render() {
     return (
       <div>

@@ -30,6 +30,7 @@ class login extends Component {
       })
       .catch(err => {
         this.setState(err);
+        this.props.updateError([{ msg: "Invalid Login Information" }]);
       });
   };
 
