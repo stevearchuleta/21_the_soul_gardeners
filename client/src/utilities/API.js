@@ -13,10 +13,6 @@ export default {
   deleteUser: function(id) {
     return axios.delete("/api/users/" + id);
   },
-  // Saves a user to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
-  },
   register: function(userData) {
     return axios.post("api/users/register", userData);
   },
@@ -27,6 +23,9 @@ export default {
     return axios.get(`api/etwater/${region}`);
   },
   getPoem: function(poemData) {
-    return axios.get("api/inspirations")
+    return axios.get("api/inspirations");
+  },
+  createJournalEntry: function(journalData){
+    return axios.post("api/dailyJounal/daily-jounal", journalData);
   }
 };

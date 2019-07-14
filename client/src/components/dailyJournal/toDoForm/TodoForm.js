@@ -5,41 +5,11 @@ import AddTodo from "./AddTodo";
 import AddComment from "./AddComment";
 import uuid from "uuid";
 import axios from "axios";
+import API from "../../../utilities/API";
 
 class TodoForm extends Component {
   state = {
-    todos: [
-      {
-        id: uuid.v4(),
-        title: "Water Plants",
-        isCompleted: false
-      },
-      {
-        id: uuid.v4(),
-        title: "Prune Foliage",
-        isCompleted: false
-      },
-      {
-        id: uuid.v4(),
-        title: "Fertilize Plants",
-        isCompleted: false
-      },
-      {
-        id: uuid.v4(),
-        title: "Germinate Seed",
-        isCompleted: false
-      },
-      {
-        id: uuid.v4(),
-        title: "Deadhead Spent Blooms",
-        isCompleted: false
-      },
-      {
-        id: uuid.v4(),
-        title: "Compost Organic Matter",
-        isCompleted: false
-      }
-    ]
+    todos: []
   };
 
   componentDidMount() {
@@ -89,6 +59,16 @@ class TodoForm extends Component {
 
 
   addComment = comment => {
+    API.createJournalEntry({comment})
+    .then(res => {
+      alert("You have successfully logged in");
+      comment.log('RESPONSE: ', res)
+    })
+    .catch(err => {
+      
+      alert("This is an Error");
+      console.log("CATCH ERROR", err);
+    });
     console.log("COMMENT", comment);
   }
   

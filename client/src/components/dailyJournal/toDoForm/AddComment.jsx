@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+const textAreaStyles = { flex: '10', padding: '5px', resize: 'none', height: '150px', fontFamily: 'sans-serif', fontSize: '1.2em'};
+
 export class AddComment extends Component {
 
   state = {
@@ -23,19 +25,16 @@ export class AddComment extends Component {
       <div>
         <form 
           onSubmit={ this.onSubmit } 
-          style={{ display: 'flex', padding: '10px' }} 
+          style={{ padding: '10px' }} 
           // action={ "/html/tags/html_form_tag_action.cfm" } 
           // method={ "post" }
         >
           
           <div> 
             <textarea 
-              style={{ flex: '10', padding: '5px', height: '250px'}}
+              style={textAreaStyles}
               name="comments" 
-              className="comments" 
-              style={{ fontFamily: 'sans-serif'}} 
-              style={{fontSize: '1.2em'}}
-              style={{height: '250px'}}
+              className="comments"
               type="submit" 
               placeholder="Type Your Garden Notes"
               value={this.state.title}
@@ -49,7 +48,7 @@ export class AddComment extends Component {
               type="submit"
               value="submit"
               class="btn"
-              style={{ flex: '1' }}
+              style={{ display: 'block', margin: '0 auto' }}
             />
           </div>
         
