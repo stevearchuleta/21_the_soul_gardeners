@@ -51,6 +51,7 @@ if(errors.length > 0) {
 
    API.register({ name, email, password, confirmPassword })
    .then(user => {
+     console.log("REGISTER TESTING");
     if(user){
     
       errors.push({ msg: 'Email address is already registered.' })

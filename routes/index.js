@@ -3,8 +3,16 @@ const router = require("express").Router();
 const apiRoutes = require("./api");
 //const authRoutes = require("./auth/auth.routes");
 
+// APP.post route TESTING
+// router.post('/testing', function(req, res){
+//    console.log('USER COMMENT: ' ,req.body);
+//    res.send("IM WORKING!");
+// });
 // API Routes
 router.use("/api", apiRoutes);
+
+
+
 
 // Authorization Routes
 //router.use("/auth", authRoutes);

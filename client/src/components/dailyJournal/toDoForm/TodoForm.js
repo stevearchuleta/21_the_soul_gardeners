@@ -59,10 +59,19 @@ class TodoForm extends Component {
 
 
   addComment = comment => {
+    // API.createJournalEntry({
+    //   title: 'test',
+    //   completed: false
+    // })    
+    // // axios
+    // //   .post("/testing", )
+    //   .then(res => console.log("IT WORKED"));
+
+
     API.createJournalEntry({comment})
     .then(res => {
-      alert("You have successfully logged in");
-      comment.log('RESPONSE: ', res)
+      alert("You have successfully added a journal note.");
+      console.log('RESPONSE: ', res);
     })
     .catch(err => {
       

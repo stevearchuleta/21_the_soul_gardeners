@@ -10,29 +10,28 @@ module.exports = {
 
     // start of validation
     let errors = [];
-    // check required fields
-    if (!name || !email || !password || !confirmPassword) {
-      errors.push({ msg: "Please complete all of the fields." });
-    }
-    //   // check password match
-    if (password !== confirmPassword) {
-      errors.push({ msg: "Passwords do not match" });
-    }
-    //   // password length
-    if (password.length < 6) {
-      errors.push({ msg: "Password must be at least 6 characters long" });
-    }
-    if (errors.length > 0) {
-      res.json({
-        errors,
-        name,
-        email,
-        password,
-        password2
-      });
-    } else {
+      // check required fields
+      if (!name || !email || !password || !confirmPassword) {
+        errors.push({ msg: "Please complete all of the fields." });
+      }
+      //   // check password match
+      if (password !== confirmPassword) {
+        errors.push({ msg: "Passwords do not match" });
+      }
+      //   // password length
+      if (password.length < 6) {
+        errors.push({ msg: "Password must be at least 6 characters long" });
+      }
+      if (errors.length > 0) {
+        res.json({
+          errors,
+          name,
+          email,
+          password,
+          password2
+        });
+      } else {
       // validation passed
-
       db.User.findOne({ email: email }).then(user => {
         if (user) {
           // User already exists

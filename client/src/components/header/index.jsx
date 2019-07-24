@@ -15,7 +15,9 @@ const header = () => {
         <h1 className="header-text-1">Gardening The Soul...</h1>
         <h1 className="header-text-2">As Well As The Soil</h1>
 
+
           <div>
+
             <h1 className="reg-message log-message welcome-message">
               {state.currentUser !== null && state.currentUser.name !== ""
                 ? `Welcome ${state.currentUser.name}`
@@ -23,12 +25,17 @@ const header = () => {
             </h1>
             
             <div>
-              { errorContext.state.errors.length > 0 ? errorContext.state.errors.map((err) => (
-              <h1>{err.msg}</h1>)) : ``
+              { errorContext.state.errors.length > 0 
+                ? errorContext.state.errors.map( 
+                  (err) => (<h1>{err.msg}</h1>)
+                  ) 
+                : ``
               }
             </div>
 
-        </div>
+          </div>
+
+
       </div>
     </div>
   );

@@ -26,6 +26,9 @@ export default {
     return axios.get("api/inspirations");
   },
   createJournalEntry: function(journalData){
-    return axios.post("api/dailyJounal/daily-jounal", journalData);
+    return axios.post("api/dailyjournal/daily-journal", journalData);
   }
+
+ 
+
 };
