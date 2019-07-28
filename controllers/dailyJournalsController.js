@@ -11,6 +11,7 @@ module.exports = {
       //   .then(dbModel => res.json(dbModel))
       //   .catch(err => res.status(422).json(err));
    console.log("DAILY JOURNAL CONTROLLER", req.body); 
+   res.send("IM WORKING! A-B-C");
   },
 
   // findAll: function(req, res) {

@@ -10,7 +10,7 @@ const dailyJournal = require("./dailyJournals");
 
 // router.post('/dailyjournal', function(req, res){
 //    console.log('USER COMMENT: ', req.body);
-//    res.send("IM WORKING!");
+//    res.send("IM WORKING! 1-2-3");
 // });
 
 

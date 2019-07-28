@@ -2,14 +2,15 @@ const router = require ('express').Router();
 const dailyJournalController = require("../../controllers/dailyJournalsController");
 
 
-router.post('/daily-jounal', function(req, res){
-  console.log('USER COMMENT: ', req.body);
-  res.send("IM WORKING!");
-});
+
+// router.route('/dailyjounalendpoint').post(function(req, res){
+//   console.log('USER COMMENT: ', req.body);
+//   res.send("IM WORKING! A-B-C");
+// });
 
 
 // Matches with "/api/users"
-router.route('/daily-jounal')
+router.route('/dailyjounalendpoint')
   .post(dailyJournalController.create);
 
 
