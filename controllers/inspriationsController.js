@@ -2,36 +2,45 @@ const db = require("../models");
 
 // Defining methods for the InspirationController
 module.exports = {
-  findAll: function(req, res) {
-    db.Inspiration
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  findAll: async (req, res) => {
+    try {
+      const dbModel = await db.Inspiration.find(req.query).sort({ date: -1 });
+      res.json(dbModel);
+    } catch(err) {
+      res.status(422).json(err);
+    }
   },
-  findById: function(req, res) {
-    db.Inspiration
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  findById: async (req, res) => {
+    try {
+      const dbModel = await db.Inspiration.findById(req.params.id);
+      res.json(dbModel);
+    } catch(err) {
+      res.status(422).json(err);
+    }
   },
-  create: function(req, res) {
-    db.Inspiration
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  create: async (req, res) => {
+    try {
+      const dbModel = await db.Inspiration.create(req.body);
+      res.json(dbModel);
+    } catch(err) {
+      res.status(422).json(err);
+    }
   },
-  update: function(req, res) {
-    db.Inspiration
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  update: async (req, res) => {
+    try {
+      const dbModel = await db.Inspiration.findOneAndUpdate({ _id: req.params.id }, req.body);
+      res.json(dbModel);
+    } catch(err) {
+      res.status(422).json(err);
+    }
   },
-  remove: function(req, res) {
-    db.Inspiration
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  remove: async (req, res) => {
+    try {
+      const dbModel = await db.Inspiration.findById({ _id: req.params.id });
+      dbModel.remove();
+      res.json(dbModel);
+    } catch(err) {
+      res.status(422).json(err);
+    }
   }
 };

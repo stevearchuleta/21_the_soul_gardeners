@@ -1,44 +1,43 @@
-// brings passport middleware into the program
-const passport = require ('passport');
-const LocalStrategy = require ("passport-local").Strategy;
-const User = require('../../models/user')
+// Require the passport package for handling user authentication
+const passport = require('passport');
 
-// config passport to use LocalStrategy
+// Require the LocalStrategy from the passport-local package.
+const LocalStrategy = require("passport-local").Strategy;
+
+// Import the user model schema to interact with the database
+const User = require('../../models/user');
+
+// Import the bcrypt functions from bcrypts.js
+const { checkPassword } = require('./bcrypts.js');
+
+// Define the passport authentication strategy
 passport.use(
   new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password',
-  }, () => null),
-  (userName, password, done) => {
-    console.log('passport.js: localStrategy(...) called: ', 
-      {userName, password});
-    // find the user by her userName
-    User.findOne({userName}).exec()
+  }, 
+  (username, password, done) => {
+    // Search the User model for a user with the username passed in
+    User.findOne({ username: username })
       .then((user) => {
-        console.log('passport.js: localStrategy: User.findOne: returned ', 
-          {user});
-        if(user && user !== null) {
-          // user is found so check if the passwords match (hashing bcrypt)
-          console.log(`passport.js: localStrategy: user found for username ${userName} checking passwords`);
-          if(password === user.password) {
-            // they match return (through the done callback) the user object
-            cconsole.log('passport.js: localStrategy: passwords match for', {userName});
-            done(null, user);
-          } else {
-            console.log('passport.js: localStrategy: incorrect password for',{userName});
-            done(null, false, {msg: 'Incorrect password'})
-          }
-        } else {
-          console.log(`passport.js: localStrategy: user not found ${userName}`);
-          done(null, false, {msg: 'User not found!'});
-
+        if (!user) {
+          return done(null, false, { message: 'User not found!' });
         }
+
+        // Use the checkPassword function from bcrypts.js to compare the entered password to the hashed password
+        checkPassword(password, user.password)
+          .then((isMatch) => {
+            if (isMatch) {
+              return done(null, user);
+            } else {
+              return done(null, false, { message: 'Incorrect password' });
+            }
+          })
+          .catch(err => console.error(err));
       })
-      .catch(err => {
-        console.log('passport.js: localStrategy: User.findOne: error ', 
-          {err});
-      });
-  }
+      .catch(err => console.error(err));
+  })
 );
 
+// Export the configured passport middleware
 module.exports = passport;

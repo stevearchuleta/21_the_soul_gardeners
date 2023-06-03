@@ -1,206 +1,578 @@
+/*
+  Remember to replace "mongodb://localhost/inspiration" with your actual 
+  MongoDB URI if you're connecting to a remote MongoDB instance.
+  */
+/*
+ Remember that the paths in seedDB.js are not filesystem paths, but URLs that 
+ the running application will use to serve these (image) files over the web. 
+ This is why the paths are relative to the 'public' directory which 
+ is the directory from which Express serves static files.
+ */
+
+/*
+ As for seeding my database, the most direct method would be to use the MongoDB Node.js driver or 
+ Mongoose in my Node.js application. My seedDB.js script is already set up to use Mongoose to connect to 
+ MongoDB and seed the data. I would need to run this script from your terminal using Node.js, like so: node seedDB.js
+
+Given that I'm building a MERN stack application and my seed script is written in Node.js, 
+the MongoDB drivers are the most relevant. 
+The other options (Compass, Shell, VSCode extension) can be useful for exploring and understanding my data, but 
+the actual application will interact with MongoDB through the drivers.
+ */
+
+/*
+In the command line terminal, navigate to the directory containing seedDB.js and run node seedDB.js. 
+This will execute the script, which connects to the MongoDB database and seeds the MongoDB database with the following data.
+*/
+
 const mongoose = require("mongoose");
 const db = require("../models");
 
 // This file empties the Inspiration collection and inserts the inspirations below
 
 mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/inspiration"
+  process.env.MONGODB_URI || "mongodb://localhost/inspiration",
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  function (error) {
+    if (error) console.error("Error while connecting to MongoDB: ", error);
+    console.log("Connected successfully to MongoDB.");
+  }
 );
 
 const inspirationSeed = [
   {
-    title: "Acceptance and Embracing",
-    author: "SGA",
-    poem:
-      "A number-one national best seller about a man who wakes up from a five-year coma able to see people's futures and the terrible fate awaiting mankind in The Dead Zone - a \"compulsive page-turner\" (The Atlanta Journal-Constitution). Johnny Smith awakens from a five-year coma after his car accident and discovers that he can see people's futures and pasts when he touches them. Many consider his talent a gift; Johnny feels cursed. His fiancée married another man during his coma, and people clamor for him to solve their problems. When Johnny has a disturbing vision after he shakes the hand of an ambitious and amoral politician, he must decide if he should take drastic action to change the future. The Dead Zone is a \"faultlessly paced...continuously engrossing\" (Los Angeles Times) novel of second sight.",
-    date: new Date(Date.now())
+    title: "Acknowledgment",
+    author: "Featuring: Rose",
+    poem: `In the garden of life, please take note,
+      — Acknowledgment — that message we promote;
+      Like a rose which does bloom, in life's anecdote,
+      Its fragrance on the breeze, amid all we dote.
+      `,
+    image: "/img/rose-108x178.png",
   },
   {
-    title: "Openings and Beginnings",
-    author: "SGA",
-    poem:
-      "The tale of a party of shipwrecked schoolboys, marooned on a coral island, who at first enjoy the freedom of the situation but soon divide into fearsome gangs which turn the paradise island into a nightmare of panic and death.",
-    date: new Date(Date.now())
+    title: "Inclusion",
+    author: "Featuring: Hyacinth",
+    poem: `Hyacinth in early spring, a sight of — inclusion —
+      Its clusters of blossoms, bringing joy in profusion;
+      Like them may we find our unique superfusion,
+      In a world where love is the ultimate conclusion.
+      `,
+    image: "/img/hyacinth-108x120.png",
   },
   {
-    title: "Voyage and Adventure",
-    author: "SGA",
-    poem:
-      "The Catcher in the Rye is a 1951 novel by J. D. Salinger. A controversial novel originally published for adults, it has since become popular with adolescent readers for its themes of teenage angst and alienation. It has been translated into almost all of the world's major languages. Around 1 million copies are sold each year with total sales of more than 65 million books. The novel's protagonist Holden Caulfield has become an icon for teenage rebellion. The novel also deals with complex issues of innocence, identity, belonging, loss, and connection.",
-    date: new Date(Date.now())
+    title: "Commencement",
+    author: "Featuring: Sunflower",
+    poem: `Sunflower tall, against summer's bright sky,
+      Symbol of—commencement — ambitions held high;
+      Not unlike it — may we grow — let our golden-hearts sigh,
+      And our dreams within reach, whenever we try.
+      `,
+    image: "/img/sunflower-125x153.png",
   },
   {
-    title: "Radiance and Light",
-    author: "SGA",
-    poem:
-      "It's the year 2147. Advancements in nanotechnology have enabled us to control aging. We’ve genetically engineered mosquitoes to feast on carbon fumes instead of blood, ending air pollution. And teleportation has become the ideal mode of transportation, offered exclusively by International Transport―the world’s most powerful corporation, in a world controlled by corporations. Joel Byram spends his days training artificial-intelligence engines to act more human and trying to salvage his deteriorating marriage. He’s pretty much an everyday twenty-second century guy with everyday problems―until he’s accidentally duplicated while teleporting. Now Joel must outsmart the shadowy organization that controls teleportation, outrun the religious sect out to destroy it, and find a way to get back to the woman he loves in a world that now has two of him.",
-    date: new Date(Date.now())
+    title: "Genesis",
+    author: "Featuring: Daisy",
+    poem: `Daisy's — genesis — each spring such delight,
+      In fields and in meadows, a beautiful sight;
+      Like them start anew and for our hopes we'll fight,
+      And bloom where we are planted, during both day and night.
+      `,
+    image: "/img/daisy-107x168.png",
   },
   {
-    title: "Faith and Belief",
-    author: "SGA",
-    poem:
-      "Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.",
-    date: new Date(Date.now())
+    title: "Exploration",
+    author: "Featuring: Orchid",
+    poem: `An orchid's journey is one of mystery,
+      Its blooming requires the seeker's transit key;
+      Not unlike it may we dare to breathe beyond each consistory,
+      Through — exploration — and discovery, we build a new history.
+      `,
+    image: "/img/orchid-110x84.png",
   },
   {
-    title: "Strength and Success",
-    author: "SGA",
-    poem:
-      "When Coraline steps through a door to find another house strangely similar to her own (only better), things seem marvelous. But there's another mother there, and another father, and they want her to stay and be their little girl. They want to change her and never let her go. Coraline will have to fight with all her wit and courage if she is to save herself and return to her ordinary life.",
-    date: new Date(Date.now())
+    title: "Discovery",
+    author: "Featuring: Daffodil",
+    poem: `Daffodils in spring, a — discovery — begun,
+      Bravely facing the beckoning sun;
+      In life like them we yearn for fun,
+      With boundless hope, we'll fearlessly run.
+      `,
+    image: "/img/daffodil-106x120.png",
   },
   {
-    title: "Compassion and Love",
-    author: "SGA",
-    poem:
-      "What do flashlights, the British invasion, black cats, and seesaws have to do with computers? In CODE, they show us the ingenious ways we manipulate language and invent new means of communicating with each other. And through CODE, we see how this ingenuity and our very human compulsion to communicate have driven the technological innovations of the past two centuries. Using everyday objects and familiar language systems such as Braille and Morse code, author Charles Petzold weaves an illuminating narrative for anyone who’s ever wondered about the secret inner life of computers and other smart machines. It’s a cleverly illustrated and eminently comprehensible story—and along the way, you’ll discover you’ve gained a real context for understanding today’s world of PCs, digital media, and the Internet. No matter what your level of technical savvy, CODE will charm you—and perhaps even awaken the technophile within.",
-    date: new Date(Date.now())
+    title: "Brilliance",
+    author: "Featuring: Lily",
+    poem: `The lily, in its — brilliance — unfolds,
+      In silence, its beauty silently holds;
+      Not unlike it — let our light shine ever so bright,
+      Reflecting the wisdom of our souls — it beholds!
+      `,
+    image: "/img/lily-109x111.png",
   },
   {
-    title: "Beauty and Impeccability",
-    author: "SGA",
-    poem:
-      "The definitive story of Amazon.com, one of the most successful companies in the world, and of its driven, brilliant founder, Jeff Bezos. Amazon.com started off delivering books through the mail. But its visionary founder, Jeff Bezos, wasn't content with being a bookseller. He wanted Amazon to become the everything store, offering limitless selection and seductive convenience at disruptively low prices. To do so, he developed a corporate culture of relentless ambition and secrecy that's never been cracked. Until now. Brad Stone enjoyed unprecedented access to current and former Amazon employees and Bezos family members, giving listeners the first in-depth, fly-on-the-wall account of life at Amazon. Compared to tech's other elite innovators - Jobs, Gates, Zuckerberg - Bezos is a private man. But he stands out for his restless pursuit of new markets, leading Amazon into risky new ventures like the Kindle and cloud computing, and transforming retail in the same way Henry Ford revolutionized manufacturing. The Everything Store will be the revealing, definitive biography of the company that placed one of the first and largest bets on the Internet and forever changed the way we shop and read.",
-    date: new Date(Date.now())
+    title: "Luminescence",
+    author: "Featuring: Iris",
+    poem: `Iris, in — luminescence — finds its place,
+      Radiating beauty, elegance, and grace;
+      Like them, we're unique, let our true selves speak,
+      In every season, our brilliance shall  embrace.
+      `,
+    image: "/img/iris-101x278.png",
   },
   {
-    title: "Enthusiasm and Joy",
-    author: "SGA",
-    poem:
-      "In his signature larger-than-life style, Arnold Schwarzenegger’s Total Recall is a revealing self-portrait of his illustrious, controversial, and truly unique life. The greatest immigrant success story of our time. His story is unique, and uniquely entertaining, and he tells it brilliantly in these pages. He was born in a year of famine, in a small Austrian town, the son of an austere police chief. He dreamed of moving to America to become a bodybuilding champion and a movie star. By the age of twenty-one, he was living in Los Angeles and had been crowned Mr. Universe. Within five years, he had learned English and become the greatest bodybuilder in the world. Within ten years, he had earned his college degree and was a millionaire from his business enterprises in real estate, landscaping, and bodybuilding. He was also the winner of a Golden Globe Award for his debut as a dramatic actor in Stay Hungry. Within twenty years, he was the world’s biggest movie star, the husband of Maria Shriver, and an emerging Republican leader who was part of the Kennedy family. Thirty-six years after coming to America, the man once known by fellow body­builders as the Austrian Oak was elected governor of California, the seventh largest economy in the world. He led the state through a budget crisis, natural disasters, and political turmoil, working across party lines for a better environment, election reforms, and bipartisan solutions. With Maria Shriver, he raised four fantastic children. In the wake of a scandal he brought upon himself, he tried to keep his family together. Until now, he has never told the full story of his life, in his own voice. Here is Arnold, with total recall.",
-    date: new Date(Date.now())
+    title: "Trust",
+    author: "Featuring: Lilac",
+    poem: `A lilac, in bloom, trusts the spring's tune,
+      In — trust — and confidence, it will flourish soon;
+      With heart open wide, and fears set aside,
+      Like it, may you dance to life's ever-changing rune.
+      `,
+    image: "/img/lilac-111x153.png",
   },
   {
-    title: "Focus and Passion",
-    author: "SGA",
-    poem:
-      "In the spirit of Steve Jobs and Moneyball, Elon Musk is both an illuminating and authorized look at the extraordinary life of one of Silicon Valley's most exciting, unpredictable, and ambitious entrepreneurs - a real-life Tony Stark - and a fascinating exploration of the renewal of American invention and its new makers. Elon Musk spotlights the technology and vision of Elon Musk, the renowned entrepreneur and innovator behind SpaceX, Tesla, and SolarCity, who sold one of his Internet companies, PayPal, for $1.5 billion. Ashlee Vance captures the full spectacle and arc of the genius' life and work, from his tumultuous upbringing in South Africa and flight to the United States to his dramatic technical innovations and entrepreneurial pursuits. Vance uses Musk's story to explore one of the pressing questions of our age: Can the nation of inventors and creators who led the modern world for a century still compete in an age of fierce global competition? He argues that Musk - one of the most unusual and striking figures in American business history - is a contemporary, visionary amalgam of legendary inventors and industrialists, including Thomas Edison, Henry Ford, Howard Hughes,and Steve Jobs. More than any other entrepreneur today, Musk has dedicated his energies and his own vast fortune to inventing a future that is as rich and far reaching as the visionaries of the golden age of science-fiction fantasy.",
-    date: new Date(Date.now())
+    title: "Confidence",
+    author: "Featuring: Dahlia",
+    poem: `The dahlia stands tall, in the summer's thrall,
+      Its — confidence — evident, making us enthralled;
+      May you, too, stand strong, where you truly belong,
+      In the garden of life, may you never feel small.
+      `,
+    image: "/img/dahlia-108x172.png",
   },
   {
-    title: "Playfulness and Pleasure",
-    author: "SGA",
-    poem:
-      "Based on more than 40 interviews with Jobs conducted over two years - as well as interviews with more than a hundred family members, friends, adversaries, competitors, and colleagues - Walter Isaacson has written a riveting story of the roller-coaster life and searingly intense personality of a creative entrepreneur whose passion for perfection and ferocious drive revolutionized six industries: personal computers, animated movies, music, phones, tablet computing, and digital publishing. At a time when America is seeking ways to sustain its innovative edge, and when societies around the world are trying to build digital-age economies, Jobs stands as the ultimate icon of inventiveness and applied imagination. He knew that the best way to create value in the 21st century was to connect creativity with technology. He built a company where leaps of the imagination were combined with remarkable feats of engineering. Although Jobs cooperated with this book, he asked for no control over what was written. He put nothing off-limits. He encouraged the people he knew to speak honestly. And Jobs speaks candidly, sometimes brutally so, about the people he worked with and competed against. His friends, foes,and colleagues provide an unvarnished view of the passions, perfectionism, obsessions, artistry, devilry, and compulsion for control that shaped his approach to business and the innovative products that resulted. Driven by demons, Jobs could drive those around him to fury and despair. But his personality and products were interrelated, just as Apple's hardware and software tended to be, as if part of an integrated system. His tale is instructive and cautionary, filled with lessons about innovation, character, leadership, and values.",
-    date: new Date(Date.now())
+    title: "Fortitude",
+    author: "Featuring: Chrysanthemum",
+    poem: `Chrysanthemum, in fall's cool embrace,
+      Shows — fortitude — in every trace;
+      Like it, may you show, a resilience glow,
+      And greet each challenge with grace.
+      `,
+    image: "/img/chrysanthemum-109x126.png",
   },
   {
-    title: "Emerging and Breakthrough",
-    author: "SGA",
-    poem:
-      "What is the nature of space and time? How do we fit within the universe? How does the universe fit within us? There's no better guide through these mind-expanding questions than acclaimed astrophysicist and best-selling author Neil deGrasse Tyson. But today, few of us have time to contemplate the cosmos. So Tyson brings the universe down to Earth succinctly and clearly, with sparkling wit, in digestible chapters consumable anytime and anywhere in your busy day. While waiting for your morning coffee to brew, or while waiting for the bus, the train, or the plane to arrive, Astrophysics for People in a Hurry will reveal just what you need to be fluent and ready for the next cosmic headlines: from the big bang to black holes, from quarks to quantum mechanics, and from the search for planets to the search for life in the universe.",
-    date: new Date(Date.now())
+    title: "Achievement",
+    author: "Featuring: Gladiolus",
+    poem: `Gladiolus spikes upward, aiming for the skies,
+      In — achievement — it boldly, endlessly strives;
+      May you, like it, rise, meet your own prize,
+      Every day, a new height, your spirit contrives.
+      `,
+    image: "/img/gladiolus-124x228.png",
   },
   {
-    title: "Energy and Action",
-    author: "SGA",
-    poem:
-      "Winston Smith toes the Party line, rewriting history to satisfy the demands of the Ministry of Truth. With each lie he writes, Winston grows to hate the Party that seeks power for its own sake and persecutes those who dare to commit thoughtcrimes. But as he starts to think for himself, Winston can’t escape the fact that Big Brother is always watching... A startling and haunting vision of the world, 1984 is so powerful that it is completely convincing from start to finish. No one can deny the influence of this novel, its hold on the imaginations of multiple generations of readers, or the resiliency of its admonitions—a legacy that seems only to grow with the passage of time.",
-    date: new Date(Date.now())
+    title: "Kindness",
+    author: "Featuring: Lotus",
+    poem: `Lotus blooms amidst murky depths,
+      With — kindness — it rises, taking steady steps;
+      May you, too, rise above strife,
+      And bring forth kindness in life.
+    `,
+    image: "/img/lotus-106x83.png",
   },
   {
-    title: "Sanctuary and Peace",
-    author: "SGA",
-    poem:
-      "Few creatures of horror have seized readers' imaginations and held them for so long as the anguished monster of Mary Shelley's Frankenstein. The story of Victor Frankenstein's terrible creation and the havoc it caused has enthralled generations of readers and inspired countless writers of horror and suspense. Considering the novel's enduring success, it is remarkable that it began merely as a whim of Lord Byron's. \"We will each write a story,\" Byron announced to his next-door neighbors, Mary Wollstonecraft Godwin and her lover Percy Bysshe Shelley. The friends were summering on the shores of Lake Geneva in Switzerland in 1816, Shelley still unknown as a poet and Byron writing the third canto of Childe Harold. When continued rains kept them confined indoors, all agreed to Byron's proposal. The illustrious poets failed to complete their ghost stories, but Mary Shelley rose supremely to the challenge. With Frankenstein, she succeeded admirably in the task she set for herself: to create a story that, in her own words, \"would speak to the mysterious fears of our nature and awaken thrilling horror -- one to make the reader dread to look round, to curdle the blood, and quicken the beatings of the heart.\"",
-    date: new Date(Date.now())
+    title: "Empathy",
+    author: "Featuring: Jasmine",
+    poem: `In the cool night air, Jasmine exudes her sweet care,
+      Her empathy abundant, beyond compare;
+      May you spread warmth like her fragrance in the night,
+      Your — empathy — a beacon, shining bright.
+      `,
+    image: "/img/jasmine-108x92.png",
   },
   {
-    title: "Commitment and Fulfillment",
-    author: "SGA",
-    poem:
-      "The authentic edition from Fitzgerald's original publisher. This edition approved by the Holden-Crowther Literary Organisation. The Great Gatsby, F. Scott Fitzgerald's third book, stands as the supreme achievement of his career. This exemplary novel of the Jazz Age has been acclaimed by generations of readers. The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted \"gin was the national drink and sex the national obsession,\" it is an exquisitely crafted tale of America in the 1920s. The Great Gatsby is one of the great classics of twentieth-century literature.",
-    date: new Date(Date.now())
+    title: "Elegance",
+    author: "Featuring: Magnolia",
+    poem: `Magnolia, elegant in her bloom,
+      Even in silence, she can fill a room;
+      Like her, may you hold your space,
+      Moving through life with — elegance — and grace.
+      `,
+    image: "/img/magnolia-112x159.png",
   },
   {
-    title: "Simplicity and Abundance",
-    author: "SGA",
-    poem:
-      "Trevor Noah, one of the comedy world's fastest-rising stars and host of The Daily Show, tells his wild coming-of-age story during the twilight of apartheid in South Africa and the tumultuous days of freedom that followed. In this Audible Studios production, Noah provides something deeper than traditional memoirists: powerfully funny observations about how farcical political and social systems play out in our lives. \"Nelson Mandela once said, 'If you talk to a man in a language he understands, that goes to his head. If you talk to him in his language, that goes to his heart.' He was so right. When you make the effort to speak someone elses language, even if it's just basic phrases here and there, you are saying to them, 'I understand that you have a culture and identity that exists beyond me. I see you as a human being.'\" (Trevor Noah)\nAttuned to the power of language at a young age - as a means of acceptance and influence in a country divided, then subdivided, into groups at odds with one another - Noah's raw, personal journey becomes something extraordinary in audio: a true testament to the power of storytelling. With brutal honesty and piercing wit, he forgoes an ordinary reading and, instead, delivers something more intimate, sharing his story with the openness and candor of a close friend. His chameleon-like ability to mimic accents and dialects, to shift effortlessly between languages including English, Xhosa, and Zulu, and to embody characters throughout his childhood - his mother, his gran, his schoolmates, first crushes and infatuations - brings each memory to life in vivid detail. Hearing him directly, you're reminded of the gift inherent in telling one's story and having it heard; of connecting with another, and seeing them as a human being.\nThe stories Noah tells are by turns hilarious, bizarre, tender, dark, and poignant - subsisting on caterpillars during months of extreme poverty, making comically pitiful attempts at teenage romance in a color-obsessed world, thrown into jail as the hapless fall guy for a crime he didn't commit, thrown by his mother from a speeding car driven by murderous gangsters, and more.",
-    date: new Date(Date.now())
-  }
-  {
-    title: "Leadership and Power",
-    author: "SGA",
-    poem:
-      "What do flashlights, the British invasion, black cats, and seesaws have to do with computers? In CODE, they show us the ingenious ways we manipulate language and invent new means of communicating with each other. And through CODE, we see how this ingenuity and our very human compulsion to communicate have driven the technological innovations of the past two centuries. Using everyday objects and familiar language systems such as Braille and Morse code, author Charles Petzold weaves an illuminating narrative for anyone who’s ever wondered about the secret inner life of computers and other smart machines. It’s a cleverly illustrated and eminently comprehensible story—and along the way, you’ll discover you’ve gained a real context for understanding today’s world of PCs, digital media, and the Internet. No matter what your level of technical savvy, CODE will charm you—and perhaps even awaken the technophile within.",
-    date: new Date(Date.now())
+    title: "Grace",
+    author: "Featuring: Marigold",
+    poem: `Marigold, a graceful sight, in the daylight bright,
+      An inspiring spectacle, to ignite our light;
+      May you, like it, display — grace — in your stance,
+      In the dance of life, may you joyously prance.
+      `,
+    image: "/img/marigold-108x107.png",
   },
   {
-    title: "Essence and Grace",
-    author: "SGA",
-    poem:
-      "The definitive story of Amazon.com, one of the most successful companies in the world, and of its driven, brilliant founder, Jeff Bezos. Amazon.com started off delivering books through the mail. But its visionary founder, Jeff Bezos, wasn't content with being a bookseller. He wanted Amazon to become the everything store, offering limitless selection and seductive convenience at disruptively low prices. To do so, he developed a corporate culture of relentless ambition and secrecy that's never been cracked. Until now. Brad Stone enjoyed unprecedented access to current and former Amazon employees and Bezos family members, giving listeners the first in-depth, fly-on-the-wall account of life at Amazon. Compared to tech's other elite innovators - Jobs, Gates, Zuckerberg - Bezos is a private man. But he stands out for his restless pursuit of new markets, leading Amazon into risky new ventures like the Kindle and cloud computing, and transforming retail in the same way Henry Ford revolutionized manufacturing. The Everything Store will be the revealing, definitive biography of the company that placed one of the first and largest bets on the Internet and forever changed the way we shop and read.",
-    date: new Date(Date.now())
+    title: "Zeal",
+    author: "Featuring: Tulip",
+    poem: `Tulips rise with the sun, full of — zeal —
+      Bursting forth from winter's seal;
+      May you awaken each day with their same delight,
+      Eager to face the day, from morning to night.
+      `,
+    image: "/img/tulip-107x175.png",
   },
   {
-    title: "Wisdom and Truth",
-    author: "SGA",
-    poem:
-      "In his signature larger-than-life style, Arnold Schwarzenegger’s Total Recall is a revealing self-portrait of his illustrious, controversial, and truly unique life. The greatest immigrant success story of our time. His story is unique, and uniquely entertaining, and he tells it brilliantly in these pages. He was born in a year of famine, in a small Austrian town, the son of an austere police chief. He dreamed of moving to America to become a bodybuilding champion and a movie star. By the age of twenty-one, he was living in Los Angeles and had been crowned Mr. Universe. Within five years, he had learned English and become the greatest bodybuilder in the world. Within ten years, he had earned his college degree and was a millionaire from his business enterprises in real estate, landscaping, and bodybuilding. He was also the winner of a Golden Globe Award for his debut as a dramatic actor in Stay Hungry. Within twenty years, he was the world’s biggest movie star, the husband of Maria Shriver, and an emerging Republican leader who was part of the Kennedy family. Thirty-six years after coming to America, the man once known by fellow body­builders as the Austrian Oak was elected governor of California, the seventh largest economy in the world. He led the state through a budget crisis, natural disasters, and political turmoil, working across party lines for a better environment, election reforms, and bipartisan solutions. With Maria Shriver, he raised four fantastic children. In the wake of a scandal he brought upon himself, he tried to keep his family together. Until now, he has never told the full story of his life, in his own voice. Here is Arnold, with total recall.",
-    date: new Date(Date.now())
+    title: "Delight",
+    author: "Featuring: Carnation",
+    poem: `Carnation's blooms are a cheerful sight,
+      Radiating joy, banishing night;
+      May your spirit, like them, burn bright,
+      Spreading zeal and — delight — in every light.
+      `,
+    image: "/img/carnation-106x185.png",
   },
   {
-    title: "Purification and Healing",
-    author: "SGA",
-    poem:
-      "In the spirit of Steve Jobs and Moneyball, Elon Musk is both an illuminating and authorized look at the extraordinary life of one of Silicon Valley's most exciting, unpredictable, and ambitious entrepreneurs - a real-life Tony Stark - and a fascinating exploration of the renewal of American invention and its new makers. Elon Musk spotlights the technology and vision of Elon Musk, the renowned entrepreneur and innovator behind SpaceX, Tesla, and SolarCity, who sold one of his Internet companies, PayPal, for $1.5 billion. Ashlee Vance captures the full spectacle and arc of the genius' life and work, from his tumultuous upbringing in South Africa and flight to the United States to his dramatic technical innovations and entrepreneurial pursuits. Vance uses Musk's story to explore one of the pressing questions of our age: Can the nation of inventors and creators who led the modern world for a century still compete in an age of fierce global competition? He argues that Musk - one of the most unusual and striking figures in American business history - is a contemporary, visionary amalgam of legendary inventors and industrialists, including Thomas Edison, Henry Ford, Howard Hughes,and Steve Jobs. More than any other entrepreneur today, Musk has dedicated his energies and his own vast fortune to inventing a future that is as rich and far reaching as the visionaries of the golden age of science-fiction fantasy.",
-    date: new Date(Date.now())
+    title: "Attention",
+    author: "Featuring: Zinnia",
+    poem: `Zinnia stands tall, in vibrant concentration,
+      A beacon of focus in nature's creation;
+      May your efforts, like its bloom, rise and sway,
+      Giving full — attention — to the challenges of the day.
+      `,
+    image: "/img/zinnia-109x127.png",
   },
   {
-    title: "Courage and Inspiration",
-    author: "SGA",
-    poem:
-      "Based on more than 40 interviews with Jobs conducted over two years - as well as interviews with more than a hundred family members, friends, adversaries, competitors, and colleagues - Walter Isaacson has written a riveting story of the roller-coaster life and searingly intense personality of a creative entrepreneur whose passion for perfection and ferocious drive revolutionized six industries: personal computers, animated movies, music, phones, tablet computing, and digital publishing. At a time when America is seeking ways to sustain its innovative edge, and when societies around the world are trying to build digital-age economies, Jobs stands as the ultimate icon of inventiveness and applied imagination. He knew that the best way to create value in the 21st century was to connect creativity with technology. He built a company where leaps of the imagination were combined with remarkable feats of engineering. Although Jobs cooperated with this book, he asked for no control over what was written. He put nothing off-limits. He encouraged the people he knew to speak honestly. And Jobs speaks candidly, sometimes brutally so, about the people he worked with and competed against. His friends, foes,and colleagues provide an unvarnished view of the passions, perfectionism, obsessions, artistry, devilry, and compulsion for control that shaped his approach to business and the innovative products that resulted. Driven by demons, Jobs could drive those around him to fury and despair. But his personality and products were interrelated, just as Apple's hardware and software tended to be, as if part of an integrated system. His tale is instructive and cautionary, filled with lessons about innovation, character, leadership, and values.",
-    date: new Date(Date.now())
+    title: "Concentration",
+    author: "Featuring: Bellflower",
+    poem: `Bellflower tolls the hours, its blue bells chime,
+      An emblem of care, of attention to time;
+      Like the bellflower, may you attend to your quest,
+      With — concentration — that never rests.
+      `,
+    image: "/img/bellflower-113x174.png",
   },
   {
-    title: "Surrender and Awakening",
-    author: "SGA",
-    poem:
-      "What is the nature of space and time? How do we fit within the universe? How does the universe fit within us? There's no better guide through these mind-expanding questions than acclaimed astrophysicist and best-selling author Neil deGrasse Tyson. But today, few of us have time to contemplate the cosmos. So Tyson brings the universe down to Earth succinctly and clearly, with sparkling wit, in digestible chapters consumable anytime and anywhere in your busy day. While waiting for your morning coffee to brew, or while waiting for the bus, the train, or the plane to arrive, Astrophysics for People in a Hurry will reveal just what you need to be fluent and ready for the next cosmic headlines: from the big bang to black holes, from quarks to quantum mechanics, and from the search for planets to the search for life in the universe.",
-    date: new Date(Date.now())
+    title: "Satisfaction",
+    author: "Featuring: Camellia",
+    poem: `Camellia, blooming in winter's desolation,
+      A symbol of enjoyment and vivid fascination;
+      May you find joy in every season's presentation,
+      And take — satisfaction — in life's every creation.
+      `,
+    image: "/img/camilliar-108x144.png",
   },
   {
-    title: "Gratitude and Delight",
-    author: "SGA",
-    poem:
-      "Winston Smith toes the Party line, rewriting history to satisfy the demands of the Ministry of Truth. With each lie he writes, Winston grows to hate the Party that seeks power for its own sake and persecutes those who dare to commit thoughtcrimes. But as he starts to think for himself, Winston can’t escape the fact that Big Brother is always watching... A startling and haunting vision of the world, 1984 is so powerful that it is completely convincing from start to finish. No one can deny the influence of this novel, its hold on the imaginations of multiple generations of readers, or the resiliency of its admonitions—a legacy that seems only to grow with the passage of time.",
-    date: new Date(Date.now())
+    title: "Enjoyment",
+    author: "Featuring: Peony",
+    poem: `Peony, in spring, spreads wide its petals' expanse,
+      Its charm invites us into a delicate dance;
+      May your heart bloom with equal satisfaction,
+      Finding — enjoyment — in every interaction.
+      `,
+    image: "/img/peony-110x192.png",
   },
   {
-    title: "Communication and Silence",
-    author: "SGA",
-    poem:
-      "Few creatures of horror have seized readers' imaginations and held them for so long as the anguished monster of Mary Shelley's Frankenstein. The story of Victor Frankenstein's terrible creation and the havoc it caused has enthralled generations of readers and inspired countless writers of horror and suspense. Considering the novel's enduring success, it is remarkable that it began merely as a whim of Lord Byron's. \"We will each write a story,\" Byron announced to his next-door neighbors, Mary Wollstonecraft Godwin and her lover Percy Bysshe Shelley. The friends were summering on the shores of Lake Geneva in Switzerland in 1816, Shelley still unknown as a poet and Byron writing the third canto of Childe Harold. When continued rains kept them confined indoors, all agreed to Byron's proposal. The illustrious poets failed to complete their ghost stories, but Mary Shelley rose supremely to the challenge. With Frankenstein, she succeeded admirably in the task she set for herself: to create a story that, in her own words, \"would speak to the mysterious fears of our nature and awaken thrilling horror -- one to make the reader dread to look round, to curdle the blood, and quicken the beatings of the heart.\"",
-    date: new Date(Date.now())
+    title: "Evolving",
+    author: "Featuring: Agapanthus",
+    poem: `Agapanthus — evolving — from bud to burst,
+      Shows us that growth starts with quenching thirst;
+      May you evolve like the bloom, with a vibrant trust,
+      In every phase of life, adaptable and just.
+      `,
+    image: "/img/agapanthus-109x184.png",
   },
   {
-    title: "Miracles and Transformation",
-    author: "SGA",
-    poem:
-      "The authentic edition from Fitzgerald's original publisher. This edition approved by the Holden-Crowther Literary Organisation. The Great Gatsby, F. Scott Fitzgerald's third book, stands as the supreme achievement of his career. This exemplary novel of the Jazz Age has been acclaimed by generations of readers. The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted \"gin was the national drink and sex the national obsession,\" it is an exquisitely crafted tale of America in the 1920s. The Great Gatsby is one of the great classics of twentieth-century literature.",
-    date: new Date(Date.now())
+    title: "Progressing",
+    author: "Featuring: Crocus",
+    poem: `Crocus, the first to greet the spring,
+      Evolving from bulb to a blossoming thing;
+      May you, like the crocus, rise and thrive,
+      — Progressing — and growing, as long as you're alive.
+      `,
+    image: "/img/crocus-109x115.png",
   },
   {
-    title: "Freedom and Flow",
-    author: "SGA",
-    poem:
-      "Trevor Noah, one of the comedy world's fastest-rising stars and host of The Daily Show, tells his wild coming-of-age story during the twilight of apartheid in South Africa and the tumultuous days of freedom that followed. In this Audible Studios production, Noah provides something deeper than traditional memoirists: powerfully funny observations about how farcical political and social systems play out in our lives. \"Nelson Mandela once said, 'If you talk to a man in a language he understands, that goes to his head. If you talk to him in his language, that goes to his heart.' He was so right. When you make the effort to speak someone elses language, even if it's just basic phrases here and there, you are saying to them, 'I understand that you have a culture and identity that exists beyond me. I see you as a human being.'\" (Trevor Noah)\nAttuned to the power of language at a young age - as a means of acceptance and influence in a country divided, then subdivided, into groups at odds with one another - Noah's raw, personal journey becomes something extraordinary in audio: a true testament to the power of storytelling. With brutal honesty and piercing wit, he forgoes an ordinary reading and, instead, delivers something more intimate, sharing his story with the openness and candor of a close friend. His chameleon-like ability to mimic accents and dialects, to shift effortlessly between languages including English, Xhosa, and Zulu, and to embody characters throughout his childhood - his mother, his gran, his schoolmates, first crushes and infatuations - brings each memory to life in vivid detail. Hearing him directly, you're reminded of the gift inherent in telling one's story and having it heard; of connecting with another, and seeing them as a human being.\nThe stories Noah tells are by turns hilarious, bizarre, tender, dark, and poignant - subsisting on caterpillars during months of extreme poverty, making comically pitiful attempts at teenage romance in a color-obsessed world, thrown into jail as the hapless fall guy for a crime he didn't commit, thrown by his mother from a speeding car driven by murderous gangsters, and more.",
-    date: new Date(Date.now())
-  }
+    title: "Vitality",
+    author: "Featuring: Calla Lily",
+    poem: `Calla Lily, with her trumpet bloom so bright,
+      Inspires — vitality — from morning till night;
+      In the movement of seasons, she doesn't tire,
+      Steadfastly blooming, setting hearts afire.
+      `,
+    image: "/img/calla_lily-108x239.png",
+  },
+  {
+    title: "Movement",
+    author: "Featuring: Cherry Blossom",
+    poem: `Cherry Blossom, in fleeting spring does grace,
+      Signifies life's — movement — at a brisk pace;
+      May you, like these blossoms, sway and dance,
+      Carrying vitality in every glance.
+      `,
+    image: "/img/cherry_blossom-108x82.png",
+  },
+  {
+    title: "Serenity",
+    author: "Featuring: Lavender",
+    poem: `Lavender, with fragrance soothing and mild,
+      Promotes — serenity — calming the inner child;
+      In a bustling world that's seldom still,
+      Lavender reminds us of the quiet thrill.
+      `,
+    image: "/img/lavender-108x191.png",
+  },
+  {
+    title: "Stillness",
+    author: "Featuring: Sage",
+    poem: `Sage, in summer blooms with silver hue,
+      Invokes — stillness — a pause, a moment to renew;
+      May you, like sage, stand tall and tranquil,
+      Serenity guiding your personality's will.
+      `,
+    image: "/img/sage-108x194.png",
+  },
+  {
+    title: "Pledge",
+    author: "Featuring: Hydrangea",
+    poem: `Hydrangea, with clusters vast and wide,
+      Speak this — pledges — made with pride;
+      In summer's glory, she unfolds her blooms,
+      Echoing vows where realization looms.
+      `,
+    image: "/img/hydrangea-120x155.png",
+  },
+  {
+    title: "Realization",
+    author: "Featuring: Freesia",
+    poem: `Freesia, with fragrance sweet and clear,
+      Whispers promises into the listener's ear;
+      May your pledges, like her scents, take flight,
+      And — realization — will flower, pure and bright.
+      `,
+    image: "/img/freesia-108x140.png",
+  },
+  {
+    title: "Minimalism",
+    author: "Featuring: Lily of the Valley",
+    poem: `Lily of the Valley, petite and pure,
+      She champions — minimalism — a simple allure;
+      Yet, in her humble form, beauty thrives,
+      Teaching plenitude, with simplified lives.
+      `,
+    image: "/img/lily_of_the_valley-107x91.png",
+  },
+  {
+    title: "Plenitude",
+    author: "Featuring: Allium",
+    poem: `Allium, with her globe-like clusters grand,
+      Stands for — plenitude — in a minimalistic land;
+      May you, like these flowers, see the worth,
+      In the simplest of pleasures here on earth.
+      `,
+    image: "/img/allium-110x153.png",
+  },
+  {
+    title: "Direction",
+    author: "Featuring: Snapdragons",
+    poem: `In gardens wild, Snapdragons rise,
+      Their — direction — strong beneath the skies;
+      Guiding each petal, stem, and leaf,
+      Your management marries your true belief.
+      `,
+    image: "/img/snapdragon-112x185.png",
+  },
+  {
+    title: "Management",
+    author: "Featuring: Morning Glory",
+    poem: `Morning Glory, with her swift ascent,
+      Teaches — management — with good intent;
+      May you chart a course that's very true,
+      And manage well in all you do.
+      `,
+    image: "/img/morning_glory-108x108.png",
+  },
+  {
+    title: "Quintessence",
+    author: "Featuring: Echinacea",
+    poem: `Echinacea, with petals reaching wide,
+      In her core — quintessence — does reside;
+      She holds her head with elegant poise,
+      Amid a healthy garden's noise.
+      `,
+    image: "/img/echinacea-108x216.png",
+  },
+  {
+    title: "Poise",
+    author: "Featuring: Begonia",
+    poem: `Begonia, in the dew-kissed morn, quietly soars,
+      In the garden's heart, a symbol of — poise — it implores;
+      May you find your strength in its gentle embrace,
+      And journey through life with unswerving grace.
+      `,
+    image: "/img/begonia-108x208.png",
+  },
+  {
+    title: "Insight",
+    author: "Featuring: Pansy",
+    poem: `Pansy, with her face so true,
+      Embodying — insight — in vibrant hues;
+      Within each delicate petal's fold,
+      Life's verity is told.
+      `,
+    image: "/img/pansy-114x147.png",
+  },
+  {
+    title: "Verity",
+    author: "Featuring: Forget-Me-Not",
+    poem: `Forget-Me-Not, in her gentle way,
+      Speaks — verity — day by day;
+      Seeking insight deep and vast,
+      May you find your truths at last.
+      `,
+    image: "/img/forget_me_not-111x109.png",
+  },
+  {
+    title: "Detoxification",
+    author: "Featuring: Poppy",
+    poem: `Poppy, with her vibrant bloom,
+      Whispers of — detoxification — a natural tune;
+      Shedding the old, welcoming the new,
+      A path of restoration to pursue.
+      `,
+    image: "/img/poppy-107x158.png",
+  },
+  {
+    title: "Restoration",
+    author: "Featuring: Butterfly Bush",
+    poem: `Butterfly Bush, a haven of rebirth,
+      Echoes — restoration — and worth;
+      May your spirit detoxify and renew,
+      Restored, like morning dew.
+      `,
+    image: "/img/butterfly_bush-110x95.png",
+  },
+  {
+    title: "Gallantry",
+    author: "Featuring: Cosmos",
+    poem: `Cosmos, a celestial show, radiant and bright,
+      Its — gallantry — unmatched, a true knight;
+      Blooming boldly in colors so free,
+      Reflects your creativity spree.
+      `,
+    image: "/img/cosmos-110x73.png",
+  },
+  {
+    title: "Creativity",
+    author: "Featuring: Geranium",
+    poem: `Geranium, with clusters grand,
+      Lends life's — creativity — a hand;
+      In your heart, may gallantry abide,
+      As your creative tides coincide.
+      `,
+    image: "/img/geranium-108x192.png",
+  },
+  {
+    title: "Concession",
+    author: "Featuring: Bird of Paradise",
+    poem: `Bird of Paradise, elegant and tall,
+      In — concession — we find no fall;
+      An enlightened view to embrace,
+      In each unfolding grace.
+      `,
+    image: "/img/bird_of_paradise-108x91.png",
+  },
+  {
+    title: "Enlightenment",
+    author: "Featuring: Hibiscus",
+    poem: `Hibiscus, with its radiant hue,
+      A symbol of — enlightenment — true;
+      May concession light your way,
+      To an enlightened brighter day.
+      `,
+    image: "/img/hibiscus-108x108.png",
+  },
+  {
+    title: "Appreciation",
+    author: "Featuring: Bluebell",
+    poem: `In the forest, the Bluebell's gentle nod,
+      Whispers of — appreciation — to the sod;
+      Its soft blue hue stirs the heart's abyss,
+      A silent sigh of nature's bliss.
+      `,
+    image: "/img/bluebell-114x173.png",
+  },
+  {
+    title: "Bliss",
+    author: "Featuring: Azalea",
+    poem: `Azalea, a dazzling spring display,
+      An emblem of appreciation, some say;
+      May its vibrant colors inspire this,
+      A heart full of appreciation and — bliss.
+      `,
+    image: "/img/azalea-106x136.png",
+  },
+  {
+    title: "Quietude",
+    author: "Featuring: Wisteria",
+    poem: `Wisteria, hanging like a silent song,
+      In its — quietude — conversations belong;
+      Its fragrant whispers wafting in the air,
+      Encourage hearts to openly share.
+      `,
+    image: "/img/wisteria-108x108.png",
+  },
+  {
+    title: "Conversation",
+    author: "Featuring: Black-Eyed Susan",
+    poem: `Black-eyed Susan, with its golden face,
+      Inspires a calm, conversation's embrace;
+      May its peaceful gaze through the morning light,
+      Encourage — conversation — in quietude's delight.
+      `,
+    image: "/img/black_eyed_susan-108x160.png",
+  },
+  {
+    title: "Phenomena",
+    author: "Featuring: Bleeding Heart",
+    poem: `Bleeding Heart, with pendulous blooms in a row,
+    Reflects life's — phenomena — a personal show;
+    From bud to blossom, in its daily start,
+    Echoes the rhythms of your personal heart.
+    `,
+    image: "/img/bleeding_heart-108x160.png",
+  },
+  {
+    title: "Shift",
+    author: "Featuring: Canna",
+    poem: `Canna, in vivid hue, the seasons transcend,
+    Signaling a — shift — as life's lines bend;
+    In its bold stance, a powerful view,
+    Embrace the change become something anew.
+    `,
+    image: "/img/canna-112x84.png",
+  },
+  {
+    title: "Autonomy",
+    author: "Featuring: Honeysuckle",
+    poem: `Honeysuckle, with tendrils freely uncoiled,
+    Inspires — autonomy — in soil firmly toiled;
+    In its reach for the sun, each new bloom a token,
+    Nature thrives when autonomy's unbroken.
+      `,
+    image: "/img/honeysuckle-108x57.png",
+  },
+  {
+    title: "Motion",
+    author: "Featuring: Gardenia",
+    poem: `Gardenia, with fragrance rich and wild,
+      A solitary bloom, nature's child;
+      An emblem of — motion — pure and white,
+      In life's garden find your autonomy take flight.`,
+    image: "/img/gardenia-108x108.png",
+  },
 ];
 
-db.Inspriation
-  .remove({})
+db.Inspiration.deleteMany({})
   .then(() => db.Inspiration.collection.insertMany(inspirationSeed))
-  .then(data => {
+  .then((data) => {
     console.log(data.result.n + " records inserted!");
-    process.exit(0);
+    mongoose.connection.close();
   })
-  .catch(err => {
+  .catch((err) => {
     console.error(err);
-    process.exit(1);
+    mongoose.connection.close();
   });
+
+/*
+  Remember to replace "mongodb://localhost/inspiration" with your actual 
+  MongoDB URI if you're connecting to a remote MongoDB instance.
+  */
